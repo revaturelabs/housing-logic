@@ -11,6 +11,13 @@ namespace Housing.Logic.Client.Controllers
     [RoutePrefix("api/associates")]
     public class AssociateController : ApiController
     {
+        [HttpPost]
+        [Route("add-associate")]
+        public HttpResponseMessage AddAssociate([FromBody] AssociateDTO associate)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, true);
+        }
+
         [HttpGet]
         [Route("get-all-associates")]
         public HttpResponseMessage GetAllAssociates()
@@ -20,16 +27,16 @@ namespace Housing.Logic.Client.Controllers
 
         [HttpPut]
         [Route("update-associate")]
-        public HttpResponseMessage UpdateDriver([FromBody] UserDTO driver)
+        public HttpResponseMessage UpdateDriver([FromBody] AssociateDTO associate)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, adminLogic.ModifyDriver(driver));
+            return Request.CreateResponse(HttpStatusCode.OK, true);
         }
 
         [HttpPost]
         [Route("remove-associate")]
-        public HttpResponseMessage RemoveDriver([FromBody] UserDTO driver)
+        public HttpResponseMessage RemoveDriver([FromBody] AssociateDTO associate)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, adminLogic.DeleteDriver(driver));
+            return Request.CreateResponse(HttpStatusCode.OK, true);
         }
 
     }

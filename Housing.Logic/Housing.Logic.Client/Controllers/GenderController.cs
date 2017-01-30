@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Housing.Logic.Domain.DataTransferObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,33 +8,35 @@ using System.Web.Http;
 
 namespace Housing.Logic.Client.Controllers
 {
+    [RoutePrefix("api/genders")]
     public class GenderController : ApiController
     {
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        [HttpPost]
+        [Route("add-gender")]
+        public HttpResponseMessage AddGender([FromBody] GenderDTO gender)
         {
-            return new string[] { "value1", "value2" };
+            return Request.CreateResponse(HttpStatusCode.OK, true);
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        [HttpGet]
+        [Route("get-all-genders")]
+        public HttpResponseMessage GetAllGenders()
         {
-            return "value";
+            return Request.CreateResponse(HttpStatusCode.OK, new List<GenderDTO>(), "application/json");
         }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        [HttpPut]
+        [Route("update-gender")]
+        public HttpResponseMessage UpdateGender([FromBody] GenderDTO gender)
         {
+            return Request.CreateResponse(HttpStatusCode.OK, true);
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPost]
+        [Route("remove-gender")]
+        public HttpResponseMessage RemoveGender([FromBody] GenderDTO gender)
         {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
+            return Request.CreateResponse(HttpStatusCode.OK, true);
         }
     }
 }
