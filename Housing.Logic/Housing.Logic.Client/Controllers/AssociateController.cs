@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Housing.Logic.Domain.DataTransferObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,33 +8,29 @@ using System.Web.Http;
 
 namespace Housing.Logic.Client.Controllers
 {
+    [RoutePrefix("api/associates")]
     public class AssociateController : ApiController
     {
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        [HttpGet]
+        [Route("get-all-associates")]
+        public HttpResponseMessage GetAllAssociates()
         {
-            return new string[] { "value1", "value2" };
+            return Request.CreateResponse(HttpStatusCode.OK, new List<AssociateDTO>(), "application/json");
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        [HttpPut]
+        [Route("update-associate")]
+        public HttpResponseMessage UpdateDriver([FromBody] UserDTO driver)
         {
-            return "value";
+            return Request.CreateResponse(HttpStatusCode.OK, adminLogic.ModifyDriver(driver));
         }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        [HttpPost]
+        [Route("remove-associate")]
+        public HttpResponseMessage RemoveDriver([FromBody] UserDTO driver)
         {
+            return Request.CreateResponse(HttpStatusCode.OK, adminLogic.DeleteDriver(driver));
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
-        }
     }
 }
