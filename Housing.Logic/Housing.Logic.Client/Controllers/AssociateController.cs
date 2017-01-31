@@ -1,4 +1,5 @@
-﻿using Housing.Logic.Domain.DataTransferObjects;
+﻿using Housing.Logic.Domain;
+using Housing.Logic.Domain.DataTransferObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,11 @@ using System.Web.Http;
 
 namespace Housing.Logic.Client.Controllers
 {
+    /// <summary>Utilizes application logic to return associate related items to UI</summary>
     [RoutePrefix("api/associates")]
     public class AssociateController : ApiController
     {
+
         [HttpPost]
         [Route("add-associate")]
         public HttpResponseMessage AddAssociate([FromBody] AssociateDTO associate)
@@ -18,11 +21,15 @@ namespace Housing.Logic.Client.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, true);
         }
 
+        /// <summary>Returns all associates in JSON format</summary>
         [HttpGet]
         [Route("get-all-associates")]
         public HttpResponseMessage GetAllAssociates()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, new List<AssociateDTO>(), "application/json");
+            ApplicationLogic logic = new ApplicationLogic();
+
+            List<AssociateDTO> allAssociates = logic.GetAssociates();
+            return Request.CreateResponse(HttpStatusCode.OK, allAssociates, "application/json");
         }
 
         [HttpPut]
