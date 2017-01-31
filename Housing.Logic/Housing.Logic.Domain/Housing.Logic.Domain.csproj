@@ -40,11 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjects\AssociateDTO.cs" />
+    <Compile Include="DataTransferObjects\BatchDTO.cs" />
+    <Compile Include="DataTransferObjects\GenderDTO.cs" />
+    <Compile Include="DataTransferObjects\HousingComplexDTO.cs" />
+    <Compile Include="DataTransferObjects\HousingDataDTO.cs" />
+    <Compile Include="DataTransferObjects\HousingUnitDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataTransferObjects\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
