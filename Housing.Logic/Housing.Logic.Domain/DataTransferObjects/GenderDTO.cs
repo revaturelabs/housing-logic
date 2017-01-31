@@ -8,6 +8,6 @@ namespace Housing.Logic.Domain.DataTransferObjects
 {
     public class GenderDTO
     {
-
+        public string Name { get; set; }
     }
 }

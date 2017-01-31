@@ -46,7 +46,6 @@
     <Compile Include="DataTransferObjects\HousingComplexDTO.cs" />
     <Compile Include="DataTransferObjects\HousingDataDTO.cs" />
     <Compile Include="DataTransferObjects\HousingUnitDTO.cs" />
-    <Compile Include="HousingData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
