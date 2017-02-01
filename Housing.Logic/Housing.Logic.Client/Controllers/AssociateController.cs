@@ -28,8 +28,8 @@ namespace Housing.Logic.Client.Controllers
         {
             ApplicationLogic logic = new ApplicationLogic();
 
-            List<AssociateDTO> allAssociates = logic.GetAssociates();
-            return Request.CreateResponse(HttpStatusCode.OK, allAssociates, "application/json");
+            List<AssociateDTO> associates = logic.GetAssociates();
+            return Request.CreateResponse(HttpStatusCode.OK, associates, "application/json");
         }
 
         [HttpPut]
