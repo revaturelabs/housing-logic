@@ -1,4 +1,5 @@
-﻿using Housing.Logic.Domain.DataTransferObjects;
+﻿using Housing.Logic.Domain;
+using Housing.Logic.Domain.DataTransferObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,10 @@ namespace Housing.Logic.Client.Controllers
         [Route("get-all-housing-data")]
         public HttpResponseMessage GetAllHousingData()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, new List<HousingDataDTO>(), "application/json");
+            ApplicationLogic logic = new ApplicationLogic();
+
+            List<HousingDataDTO> housingData = logic.GetHousingData();
+            return Request.CreateResponse(HttpStatusCode.OK, housingData, "application/json");
         }
 
         [HttpPut]
