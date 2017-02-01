@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Housing.Logic.Domain.DataTransferObjects;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Runtime.Serialization.Json;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +13,7 @@ namespace Housing.Logic.Domain
     /// <summary>Class is used for consuming lower level data access service</summary>
     public class DataAccess
     {
-        const string apiURL = "http://localhost:57200/api/";
+        const string apiURL = "http://localhost:57200/api";
 
         #region Create
 
@@ -19,34 +21,32 @@ namespace Housing.Logic.Domain
 
         #region Read
         /// <summary>Used for GET calls to data access API</summary>
-        public T getItemsFromApi<T>(string controllerName) where T : class, new()
+        public async Task<List<AssociateDTO>> GetAllAssociates()
         {
+            List<AssociateDTO> list = null;
             HttpClient httpClient = new HttpClient();
 
-            var httpResponse = httpClient.GetAsync(apiURL + controllerName).Result;
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = httpClient.GetAsync(apiURL + "/associate").Result;
 
-            if (httpResponse.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
-                var stream = httpResponse.Content.ReadAsStreamAsync().Result;
-                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T));
-                T items = serializer.ReadObject(stream) as T;
+                var data = await response.Content.ReadAsStringAsync();
+                var product = JsonConvert.DeserializeObject<List<AssociateDTO>>(data);
+                list = product;
+            }
 
-                return items;
-            }
-            else
-            {
-                return null;
-            }
+            return list;
         }
         #endregion
 
         #region Update
 
-        #endregion
+            #endregion
 
         #region Delete
 
-        #endregion
+            #endregion
 
-    }
+        }
 }
