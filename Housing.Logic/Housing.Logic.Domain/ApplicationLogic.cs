@@ -1,7 +1,10 @@
 ﻿using Housing.Logic.Domain.DataTransferObjects;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,7 +17,7 @@ namespace Housing.Logic.Domain
         public List<AssociateDTO> GetAssociates()
         {
             DataAccess data = new DataAccess();
-            List<AssociateDTO> allAssociates = data.getItemsFromApi<List<AssociateDTO>>("associate");
+            var allAssociates = data.GetAllAssociates().Result;
 
             return allAssociates;
         }
