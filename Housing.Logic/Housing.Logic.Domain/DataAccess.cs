@@ -13,7 +13,7 @@ namespace Housing.Logic.Domain
     /// <summary>Class is used for consuming lower level data access service</summary>
     public class DataAccess
     {
-        const string apiURL = "http://localhost:57200/api";
+        const string apiURL = "http://localhost:57200/api/";
 
         #region Create
 
@@ -21,19 +21,23 @@ namespace Housing.Logic.Domain
 
         #region Read
         /// <summary>Used for GET calls to data access API</summary>
-        public async Task<List<AssociateDTO>> GetAllAssociates()
+        public async Task<T> GetItemsFromApi<T>(string controllerName) where T : class, new()
         {
-            List<AssociateDTO> list = null;
+            T list;
             HttpClient httpClient = new HttpClient();
 
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = httpClient.GetAsync(apiURL + "/associate").Result;
+            HttpResponseMessage response = httpClient.GetAsync(apiURL + controllerName).Result;
 
             if (response.IsSuccessStatusCode)
             {
                 var data = await response.Content.ReadAsStringAsync();
-                var product = JsonConvert.DeserializeObject<List<AssociateDTO>>(data);
+                var product = JsonConvert.DeserializeObject<T>(data);
                 list = product;
+            }
+            else
+            {
+                list = null;
             }
 
             return list;
@@ -42,11 +46,11 @@ namespace Housing.Logic.Domain
 
         #region Update
 
-            #endregion
+        #endregion
 
         #region Delete
 
-            #endregion
+        #endregion
 
-        }
+    }
 }

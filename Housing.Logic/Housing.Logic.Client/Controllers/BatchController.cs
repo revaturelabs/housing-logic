@@ -1,4 +1,5 @@
-﻿using Housing.Logic.Domain.DataTransferObjects;
+﻿using Housing.Logic.Domain;
+using Housing.Logic.Domain.DataTransferObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,10 @@ namespace Housing.Logic.Client.Controllers
         [Route("get-all-batches")]
         public HttpResponseMessage GetAllBatches()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, new List<BatchDTO>(), "application/json");
+            ApplicationLogic logic = new ApplicationLogic();
+
+            List<BatchDTO> batches = logic.GetBatches();
+            return Request.CreateResponse(HttpStatusCode.OK, batches, "application/json");
         }
 
         [HttpPut]
