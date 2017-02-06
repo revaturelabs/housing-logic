@@ -22,6 +22,13 @@ namespace Housing.Logic.Domain
             return allAssociates;
         }
 
+        public bool InsertAssociate(AssociateDTO associateToInsert)
+        {
+            DataAccess data = new DataAccess();
+            var insertionResult = data.InsertItemUsingApi<AssociateDTO>(associateToInsert, "associate").Result;
+
+            return insertionResult;
+        }
         #endregion
 
         #region Batch Related

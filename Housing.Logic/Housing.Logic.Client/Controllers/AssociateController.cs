@@ -13,12 +13,14 @@ namespace Housing.Logic.Client.Controllers
     [RoutePrefix("api/associates")]
     public class AssociateController : ApiController
     {
-
+        /// <summary>Insert an associate. Accepts AssociateDTO objects, returns bool for inserted.</summary>
         [HttpPost]
         [Route("add-associate")]
         public HttpResponseMessage AddAssociate([FromBody] AssociateDTO associate)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            ApplicationLogic logic = new ApplicationLogic();
+
+            return Request.CreateResponse(HttpStatusCode.OK, logic.InsertAssociate(associate));
         }
 
         /// <summary>Returns all associates in JSON format</summary>

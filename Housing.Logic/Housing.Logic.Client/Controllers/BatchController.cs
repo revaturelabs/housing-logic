@@ -36,7 +36,7 @@ namespace Housing.Logic.Client.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, true);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("remove-batch")]
         public HttpResponseMessage RemoveBatch([FromBody] BatchDTO batch)
         {
