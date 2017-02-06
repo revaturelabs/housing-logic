@@ -16,7 +16,9 @@ namespace Housing.Logic.Client.Controllers
         [Route("add-gender")]
         public HttpResponseMessage AddGender([FromBody] GenderDTO gender)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            ApplicationLogic logic = new ApplicationLogic();
+
+            return Request.CreateResponse(HttpStatusCode.OK, logic.InsertGender(gender));
         }
 
         [HttpGet]

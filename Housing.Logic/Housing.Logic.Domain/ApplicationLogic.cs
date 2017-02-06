@@ -17,7 +17,7 @@ namespace Housing.Logic.Domain
         public List<AssociateDTO> GetAssociates()
         {
             DataAccess data = new DataAccess();
-            var allAssociates = data.GetItemsFromApi<List<AssociateDTO>>("associate").Result;
+            var allAssociates = data.GetItemsFromApi<List<AssociateDTO>>("Associate").Result;
 
             return allAssociates;
         }
@@ -25,7 +25,7 @@ namespace Housing.Logic.Domain
         public bool InsertAssociate(AssociateDTO associateToInsert)
         {
             DataAccess data = new DataAccess();
-            var insertionResult = data.InsertItemUsingApi<AssociateDTO>(associateToInsert, "associate").Result;
+            var insertionResult = data.InsertItemUsingApi<AssociateDTO>(associateToInsert, "Associate").Result;
 
             return insertionResult;
         }
@@ -35,42 +35,71 @@ namespace Housing.Logic.Domain
         public List<BatchDTO> GetBatches()
         {
             DataAccess data = new DataAccess();
-            var allBatches = data.GetItemsFromApi<List<BatchDTO>>("batch").Result;
+            var allBatches = data.GetItemsFromApi<List<BatchDTO>>("Batch").Result;
 
             return allBatches;
         }
 
+        public bool InsertBatch(BatchDTO batchToInsert)
+        {
+            DataAccess data = new DataAccess();
+            var insertionResult = data.InsertItemUsingApi<BatchDTO>(batchToInsert, "Batch").Result;
+
+            return insertionResult;
+        }
         #endregion
 
         #region Gender Related
         public List<GenderDTO> GetGenders()
         {
             DataAccess data = new DataAccess();
-            var allGenders = data.GetItemsFromApi<List<GenderDTO>>("gender").Result;
+            var allGenders = data.GetItemsFromApi<List<GenderDTO>>("Gender").Result;
 
             return allGenders;
         }
 
+        public bool InsertGender(GenderDTO genderToInsert)
+        {
+            DataAccess data = new DataAccess();
+            var insertionResult = data.InsertItemUsingApi<GenderDTO>(genderToInsert, "Gender").Result;
+
+            return insertionResult;
+        }
         #endregion
 
         #region Housing Complex Related
         public List<HousingComplexDTO> GetHousingComplexes()
         {
             DataAccess data = new DataAccess();
-            var allHousingComplexes = data.GetItemsFromApi<List<HousingComplexDTO>>("housing-complex").Result;
+            var allHousingComplexes = data.GetItemsFromApi<List<HousingComplexDTO>>("HousingComplex").Result;
 
             return allHousingComplexes;
         }
 
+        public bool InsertHousingComplex(HousingComplexDTO housingComplexToInsert)
+        {
+            DataAccess data = new DataAccess();
+            var insertionResult = data.InsertItemUsingApi<HousingComplexDTO>(housingComplexToInsert, "HousingComplex").Result;
+
+            return insertionResult;
+        }
         #endregion
 
         #region Housing Data Related
         public List<HousingDataDTO> GetHousingData()
         {
             DataAccess data = new DataAccess();
-            var allHousingData = data.GetItemsFromApi<List<HousingDataDTO>>("housing-data").Result;
+            var allHousingData = data.GetItemsFromApi<List<HousingDataDTO>>("HousingData").Result;
 
             return allHousingData;
+        }
+
+        public bool InsertHousingData(HousingDataDTO housingDataToInsert)
+        {
+            DataAccess data = new DataAccess();
+            var insertionResult = data.InsertItemUsingApi<HousingDataDTO>(housingDataToInsert, "HousingData").Result;
+
+            return insertionResult;
         }
         #endregion
 
@@ -78,11 +107,18 @@ namespace Housing.Logic.Domain
         public List<HousingUnitDTO> GetHousingUnits()
         {
             DataAccess data = new DataAccess();
-            var allHousingUnits = data.GetItemsFromApi<List<HousingUnitDTO>>("housing-unit").Result;
+            var allHousingUnits = data.GetItemsFromApi<List<HousingUnitDTO>>("HousingUnit").Result;
 
             return allHousingUnits;
         }
 
+        public bool InsertHousingUnit(HousingUnitDTO housingUnitToInsert)
+        {
+            DataAccess data = new DataAccess();
+            var insertionResult = data.InsertItemUsingApi<HousingUnitDTO>(housingUnitToInsert, "HousingUnit").Result;
+
+            return insertionResult;
+        }
         #endregion
     }
 }
