@@ -16,7 +16,9 @@ namespace Housing.Logic.Client.Controllers
         [Route("add-housing-complex")]
         public HttpResponseMessage AddHousingComplex([FromBody] HousingComplexDTO housingComplex)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            ApplicationLogic logic = new ApplicationLogic();
+
+            return Request.CreateResponse(HttpStatusCode.OK, logic.InsertHousingComplex(housingComplex));
         }
 
         [HttpGet]

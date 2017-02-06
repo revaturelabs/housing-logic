@@ -16,7 +16,9 @@ namespace Housing.Logic.Client.Controllers
         [Route("add-batch")]
         public HttpResponseMessage AddBatch([FromBody] BatchDTO batch)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            ApplicationLogic logic = new ApplicationLogic();
+
+            return Request.CreateResponse(HttpStatusCode.OK, logic.InsertBatch(batch));
         }
 
         [HttpGet]
@@ -36,7 +38,7 @@ namespace Housing.Logic.Client.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, true);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("remove-batch")]
         public HttpResponseMessage RemoveBatch([FromBody] BatchDTO batch)
         {

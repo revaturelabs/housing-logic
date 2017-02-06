@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace Housing.Logic.Domain
 {
@@ -16,7 +17,34 @@ namespace Housing.Logic.Domain
         const string apiURL = "http://localhost:57200/api/";
 
         #region Create
+        /// <summary>Used for insert calls to data access API</summary>
+        public async Task<bool> InsertItemUsingApi<T>(T itemToInsert, string controllerName) where T : class, new()
+        {
+            HttpClient httpClient = new HttpClient();
 
+            var itemToInsertJson = new JavaScriptSerializer().Serialize(itemToInsert);
+            HttpContent contentPost = new StringContent(itemToInsertJson, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = httpClient.PostAsync(apiURL + controllerName, contentPost).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+
+                if (data == "true" || data == "True")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            else
+            {
+                return false;
+            }
+        }
         #endregion
 
         #region Read
