@@ -9,40 +9,144 @@ using System.Web.Http;
 
 namespace Housing.Logic.Client.Controllers
 {
+    /// <summary>
+    /// Utilizes application logic to return Gender related items to UI
+    /// </summary>
     [RoutePrefix("api/genders")]
     public class GenderController : ApiController
     {
-        [HttpPost]
-        [Route("add-gender")]
-        public HttpResponseMessage AddGender([FromBody] GenderDTO gender)
-        {
-            ApplicationLogic logic = new ApplicationLogic();
+        private ApplicationLogic logic = new ApplicationLogic();
 
-            return Request.CreateResponse(HttpStatusCode.OK, logic.InsertGender(gender));
-        }
-
+        ////Get: api/gender
+        /// <summary>
+        /// Gets a list of genders in json format
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        [Route("get-all-genders")]
-        public HttpResponseMessage GetAllGenders()
+        public HttpResponseMessage Get()
         {
-            ApplicationLogic logic = new ApplicationLogic();
-
-            List<GenderDTO> genders = logic.GetGenders();
-            return Request.CreateResponse(HttpStatusCode.OK, genders, "application/json");
+            List<GenderDTO> a;
+            try
+            {
+                if ((a = logic.GetGenders()) != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
+                }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
         }
 
-        [HttpPut]
-        [Route("update-gender")]
-        public HttpResponseMessage UpdateGender([FromBody] GenderDTO gender)
+        //Get: api/gender/id
+        /// <summary>
+        /// Gets a gender in json format
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public HttpResponseMessage Get(string id)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            GenderDTO a;
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(id))
+                {
+                    if ((a = logic.GetGenders().FirstOrDefault(m => m.Name.Equals(id))) != null)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
+                    }
+                }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
         }
 
+        ////Post: api/gender
+        /// <summary>
+        /// Attempts to insert gender
+        /// </summary>
+        /// <param name="gender"></param>
+        /// <returns></returns>
         [HttpPost]
-        [Route("remove-gender")]
-        public HttpResponseMessage RemoveGender([FromBody] GenderDTO gender)
+        public HttpResponseMessage Post([FromBody] GenderDTO gender)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            if (gender != null)
+            {
+                try
+                {
+                    if (logic.InsertGender(gender))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        ////Put: api/gender/id
+        /// <summary>
+        /// Attempts to update a gender
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="gender"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public HttpResponseMessage Put(string id, [FromBody] GenderDTO gender)
+        {
+            if (gender != null && !string.IsNullOrWhiteSpace(id))
+            {
+                try
+                {
+                    if (logic.UpdateGender(id, gender))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        ////Delete: api/gender/id
+        /// <summary>
+        /// Attempts to delete a gender
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public HttpResponseMessage Delete(string id)
+        {
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                try
+                {
+                    if (logic.DeleteGender(id))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }

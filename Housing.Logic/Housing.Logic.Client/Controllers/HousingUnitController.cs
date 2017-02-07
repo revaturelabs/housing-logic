@@ -9,40 +9,116 @@ using System.Web.Http;
 
 namespace Housing.Logic.Client.Controllers
 {
+
+
+    /// <summary>
+    /// Utilizes application logic to return HousingUnit related items to UI
+    /// </summary>
     [RoutePrefix("api/housing-units")]
     public class HousingUnitController : ApiController
     {
-        [HttpPost]
-        [Route("add-housing-unit")]
-        public HttpResponseMessage AddHousingUnit([FromBody] HousingUnitDTO housingUnit)
-        {
-            ApplicationLogic logic = new ApplicationLogic();
+        private ApplicationLogic logic = new ApplicationLogic();
 
-            return Request.CreateResponse(HttpStatusCode.OK, logic.InsertHousingUnit(housingUnit));
+        [HttpGet]
+        public HttpResponseMessage Get()
+        {
+            List<HousingUnitDTO> a;
+            try
+            {
+                if ((a = logic.GetHousingUnits()) != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
+                }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
         }
 
         [HttpGet]
-        [Route("get-all-housing-units")]
-        public HttpResponseMessage GetAllHousingUnits()
+        public HttpResponseMessage Get(string id)
         {
-            ApplicationLogic logic = new ApplicationLogic();
-
-            List<HousingUnitDTO> housingUnits = logic.GetHousingUnits();
-            return Request.CreateResponse(HttpStatusCode.OK, housingUnits, "application/json");
-        }
-
-        [HttpPut]
-        [Route("update-housing-unit")]
-        public HttpResponseMessage UpdateHousingUnit([FromBody] HousingUnitDTO housingUnit)
-        {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            HousingUnitDTO a;
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(id))
+                {
+                    if ((a = logic.GetHousingUnits().FirstOrDefault(m => m.HousingUnitName.Equals(id))) != null)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
+                    }
+                }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
         }
 
         [HttpPost]
-        [Route("remove-housing-unit")]
-        public HttpResponseMessage RemoveHousingUnit([FromBody] HousingUnitDTO housingUnit)
+        public HttpResponseMessage Post([FromBody] HousingUnitDTO housingUnit)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            if (housingUnit != null)
+            {
+                try
+                {
+                    if (logic.InsertHousingUnit(a))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        [HttpPut]
+        public HttpResponseMessage Put(string id, [FromBody] HousingUnitDTO housingUnit)
+        {
+            if (housingUnit != null && !string.IsNullOrWhiteSpace(id))
+            {
+                try
+                {
+                    if (logic.UpdateHousingUnit(id, assoc))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        [HttpDelete]
+        public HttpResponseMessage Delete(string id)
+        {
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                try
+                {
+                    if (logic.DeleteHousingUnit(id))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }

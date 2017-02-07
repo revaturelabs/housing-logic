@@ -66,6 +66,17 @@ namespace Housing.Logic.Domain
 
             return insertionResult;
         }
+
+        public bool UpdateBatch(string id, BatchDTO batch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteBatch(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         #region Gender Related
@@ -81,6 +92,16 @@ namespace Housing.Logic.Domain
             var insertionResult = data.InsertItemUsingApi<GenderDTO>(genderToInsert, "Gender").Result;
 
             return insertionResult;
+        }
+
+        public bool UpdateGender(string id, GenderDTO batch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteDelete(string id)
+        {
+            throw new NotImplementedException();
         }
         #endregion
 
@@ -98,6 +119,16 @@ namespace Housing.Logic.Domain
 
             return insertionResult;
         }
+
+        public bool UpdateHousingComplex(string id, HousingComplexDTO batch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteHousingComplex(string id)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region Housing Data Related
@@ -114,6 +145,16 @@ namespace Housing.Logic.Domain
 
             return insertionResult;
         }
+
+        public bool UpdateHousingData(string id, HousingDataDTO batch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteHousingData(string id)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region Housing Unit Related
@@ -129,6 +170,16 @@ namespace Housing.Logic.Domain
             var insertionResult = data.InsertItemUsingApi<HousingUnitDTO>(housingUnitToInsert, "HousingUnit").Result;
 
             return insertionResult;
+        }
+
+        public bool UpdateHousingUnit(string id, HousingUnitDTO batch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteHousingUnit(string id)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }
