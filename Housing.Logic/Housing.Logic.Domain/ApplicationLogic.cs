@@ -33,7 +33,22 @@ namespace Housing.Logic.Domain
             return insertionResult;
         }
 
-        public 
+        public bool UpdateAssociate(string Id, AssociateDTO assoc)
+        {
+            return data.UpdaateItemUsingApi<AssociateDTO>(assoc, "associate", Id).Result;
+        }
+
+        /// <summary>
+        /// call delete from dataAccess
+        /// </summary>
+        /// <param name="assoc"></param>
+        /// <returns>true if success, else returns false</returns>
+        public bool DeleteAssociate(string assoc)
+        {
+            return data.DeleteItemUsingApi(assoc, "associate").Result;
+        }
+
+         
 
         #endregion
 

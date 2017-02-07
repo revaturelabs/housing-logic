@@ -10,15 +10,15 @@ using System.Web.Http;
 namespace Housing.Logic.Client.Controllers
 {
     /// <summary>Utilizes application logic to return associate related items to UI</summary>
-    [RoutePrefix("api/associates")]
+    [RoutePrefix("api/associate")]
     public class AssociateController : ApiController
     {
         private ApplicationLogic logic = new ApplicationLogic();
 
-        //GET: api/associates
+        //GET: api/associate
         /// <summary>Returns all associates in JSON format</summary>
         [HttpGet]
-        public HttpResponseMessage GetAllAssociates()
+        public HttpResponseMessage Get()
         {
 
             List<AssociateDTO> a;
@@ -36,10 +36,10 @@ namespace Housing.Logic.Client.Controllers
             }
         }
 
-        //GET: api/associates/id
+        //GET: api/associate/id
         /// <summary>Returns an associates in JSON format</summary>
         [HttpGet]
-        public HttpResponseMessage GetAllAssociates(string id)
+        public HttpResponseMessage Get(string id)
         {
             AssociateDTO a;
             try
@@ -62,7 +62,7 @@ namespace Housing.Logic.Client.Controllers
         //Post: api/associate
         /// <summary>Insert an associate. Accepts AssociateDTO objects, returns bool for inserted.</summary>
         [HttpPost]
-        public HttpResponseMessage AddAssociate([FromBody] AssociateDTO a)
+        public HttpResponseMessage Post([FromBody] AssociateDTO a)
         {
             if (a != null)
             {
@@ -90,7 +90,7 @@ namespace Housing.Logic.Client.Controllers
         /// <param name="assoc"></param>
         /// <returns>OK if successful</returns>
         [HttpPut]
-        public HttpResponseMessage UpdateDriver(string id, [FromBody] AssociateDTO assoc)
+        public HttpResponseMessage Put(string id, [FromBody] AssociateDTO assoc)
         {
             if (assoc != null && !string.IsNullOrWhiteSpace(id))
             {
@@ -116,14 +116,14 @@ namespace Housing.Logic.Client.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpPost]
-        public HttpResponseMessage RemoveDriver(string id)
+        [HttpDelete]
+        public HttpResponseMessage Delete(string id)
         {
             if (!string.IsNullOrWhiteSpace(id))
             {
                 try
                 {
-                    if (logic.DeleteAssociate(logic.GetAssociates().FirstOrDefault(m => m.Email.Equals(id))))
+                    if (logic.DeleteAssociate(id))
                     {
                         return Request.CreateResponse(HttpStatusCode.OK);
                     }
