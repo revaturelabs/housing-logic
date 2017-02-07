@@ -65,7 +65,7 @@ namespace Housing.Logic.Client.Controllers
             {
                 try
                 {
-                    if (logic.InsertHousingUnit(a))
+                    if (logic.InsertHousingUnit(housingUnit))
                     {
                         return Request.CreateResponse(HttpStatusCode.OK);
                     }
@@ -86,7 +86,7 @@ namespace Housing.Logic.Client.Controllers
             {
                 try
                 {
-                    if (logic.UpdateHousingUnit(id, assoc))
+                    if (logic.UpdateHousingUnit(id, housingUnit))
                     {
                         return Request.CreateResponse(HttpStatusCode.OK);
                     }

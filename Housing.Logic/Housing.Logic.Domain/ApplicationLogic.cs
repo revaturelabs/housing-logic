@@ -35,7 +35,7 @@ namespace Housing.Logic.Domain
 
         public bool UpdateAssociate(string Id, AssociateDTO assoc)
         {
-            return data.UpdaateItemUsingApi<AssociateDTO>(assoc, "associate", Id).Result;
+            return data.UpdateItemUsingApi<AssociateDTO>(assoc, "associate", Id).Result;
         }
 
         /// <summary>
@@ -67,14 +67,14 @@ namespace Housing.Logic.Domain
             return insertionResult;
         }
 
-        public bool UpdateBatch(string id, BatchDTO batch)
+        public bool UpdateBatch(string Id, BatchDTO batch)
         {
-            throw new NotImplementedException();
+            return data.UpdateItemUsingApi<BatchDTO>(batch, "batch", Id).Result;
         }
-
+               
         public bool DeleteBatch(string id)
         {
-            throw new NotImplementedException();
+            return data.DeleteItemUsingApi(id, "batch").Result;
         }
 
         #endregion
@@ -93,15 +93,14 @@ namespace Housing.Logic.Domain
 
             return insertionResult;
         }
-
-        public bool UpdateGender(string id, GenderDTO batch)
+        public bool UpdateGender(string Id, GenderDTO gender)
         {
-            throw new NotImplementedException();
+            return data.UpdateItemUsingApi<GenderDTO>(gender, "gender", Id).Result;
         }
 
-        public bool DeleteDelete(string id)
+        public bool DeleteGender(string id)
         {
-            throw new NotImplementedException();
+            return data.DeleteItemUsingApi(id, "gender").Result;
         }
         #endregion
 
@@ -120,14 +119,14 @@ namespace Housing.Logic.Domain
             return insertionResult;
         }
 
-        public bool UpdateHousingComplex(string id, HousingComplexDTO batch)
+        public bool UpdateHousingComplex(string Id, HousingComplexDTO housingComplex)
         {
-            throw new NotImplementedException();
+            return data.UpdateItemUsingApi<HousingComplexDTO>(housingComplex, "housingcomplex", Id).Result;
         }
 
         public bool DeleteHousingComplex(string id)
         {
-            throw new NotImplementedException();
+            return data.DeleteItemUsingApi(id, "housingcomplex").Result;
         }
         #endregion
 
@@ -145,15 +144,14 @@ namespace Housing.Logic.Domain
 
             return insertionResult;
         }
-
-        public bool UpdateHousingData(string id, HousingDataDTO batch)
+        public bool UpdateHousingData(string Id, HousingDataDTO housingData)
         {
-            throw new NotImplementedException();
+            return data.UpdateItemUsingApi<HousingDataDTO>(housingData, "housingdata", Id).Result;
         }
 
         public bool DeleteHousingData(string id)
         {
-            throw new NotImplementedException();
+            return data.DeleteItemUsingApi(id, "housingdata").Result;
         }
         #endregion
 
@@ -171,15 +169,14 @@ namespace Housing.Logic.Domain
 
             return insertionResult;
         }
-
-        public bool UpdateHousingUnit(string id, HousingUnitDTO batch)
+        public bool UpdateHousingUnit(string Id, HousingUnitDTO housingUnit)
         {
-            throw new NotImplementedException();
+            return data.UpdateItemUsingApi<HousingUnitDTO>(housingUnit, "housingunit", Id).Result;
         }
 
         public bool DeleteHousingUnit(string id)
         {
-            throw new NotImplementedException();
+            return data.DeleteItemUsingApi(id, "housingunit").Result;
         }
         #endregion
     }

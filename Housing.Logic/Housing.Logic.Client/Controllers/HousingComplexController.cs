@@ -98,7 +98,7 @@ namespace Housing.Logic.Client.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
-        [HttpPost]
+        [HttpDelete]
         public HttpResponseMessage Delete(string id)
         {
             if (!string.IsNullOrWhiteSpace(id))

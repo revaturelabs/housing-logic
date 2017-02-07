@@ -128,7 +128,7 @@ namespace Housing.Logic.Client.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpDelete]
         public HttpResponseMessage Delete(string id)
         {
             if (!string.IsNullOrWhiteSpace(id))

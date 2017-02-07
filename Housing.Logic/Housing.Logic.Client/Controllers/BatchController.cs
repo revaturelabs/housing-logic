@@ -135,7 +135,7 @@ namespace Housing.Logic.Client.Controllers
             {
                 try
                 {
-                    if (logic.DeleteAssociate(id))
+                    if (logic.DeleteBatch(id))
                     {
                         return Request.CreateResponse(HttpStatusCode.OK);
                     }

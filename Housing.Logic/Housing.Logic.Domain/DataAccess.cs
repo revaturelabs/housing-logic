@@ -65,7 +65,7 @@ namespace Housing.Logic.Domain
 
         #region Update
 
-        public async Task<bool> UpdaateItemUsingApi<T>(T itemToInsert, string controllerName, string objId) where T : class, new()
+        public async Task<bool> UpdateItemUsingApi<T>(T itemToInsert, string controllerName, string objId) where T : class, new()
         {
             HttpClient httpClient = new HttpClient();
             var itemToInsertJson = new JavaScriptSerializer().Serialize(itemToInsert);
