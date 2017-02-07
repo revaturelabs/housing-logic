@@ -484,11 +484,14 @@
         <member name="T:Housing.Logic.Client.Controllers.AssociateController">
             <summary>Utilizes application logic to return associate related items to UI</summary>
         </member>
-        <member name="M:Housing.Logic.Client.Controllers.AssociateController.AddAssociate(Housing.Logic.Domain.DataTransferObjects.AssociateDTO)">
-            <summary>Insert an associate. Accepts AssociateDTO objects, returns bool for inserted.</summary>
-        </member>
         <member name="M:Housing.Logic.Client.Controllers.AssociateController.GetAllAssociates">
             <summary>Returns all associates in JSON format</summary>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.AssociateController.GetAllAssociates(System.String)">
+            <summary>Returns an associates in JSON format</summary>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.AssociateController.AddAssociate(Housing.Logic.Domain.DataTransferObjects.AssociateDTO)">
+            <summary>Insert an associate. Accepts AssociateDTO objects, returns bool for inserted.</summary>
         </member>
     </members>
 </doc>
