@@ -11,8 +11,8 @@ namespace Housing.Logic.Domain.DataTransferObjects
         public string HousingUnitName { get; set; }
         public string AptNumber { get; set; }
         public int MaxCapacity { get; set; }
-        public string Gender { get; set; }
-        public int HousingComplexId { get; set; }
+        public string GenderName { get; set; }
+        public string HousingComplexName { get; set; }
 
     }
 }

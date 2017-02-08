@@ -28,16 +28,7 @@ namespace Housing.Logic.Domain
 
             if (response.IsSuccessStatusCode)
             {
-                var data = await response.Content.ReadAsStringAsync();
-
-                if (data == "true" || data == "True")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
 
             else
@@ -74,9 +65,47 @@ namespace Housing.Logic.Domain
 
         #region Update
 
+        public async Task<bool> UpdateItemUsingApi<T>(T itemToInsert, string controllerName, string objId) where T : class, new()
+        {
+            HttpClient httpClient = new HttpClient();
+            var itemToInsertJson = new JavaScriptSerializer().Serialize(itemToInsert);
+            HttpContent contentPost = new StringContent(itemToInsertJson, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = httpClient.PutAsync(apiURL + controllerName + '/' + objId + '/', contentPost).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
         #endregion
 
         #region Delete
+
+        /// <summary>
+        /// attempt to delete item with given name using given ctrl
+        /// </summary>
+        /// <param name="toDeleteId"></param>
+        /// <param name="controllerName"></param>
+        /// <returns></returns>
+        public async Task<bool> DeleteItemUsingApi(string toDeleteId, string controllerName)
+        {
+            HttpClient httpClient = new HttpClient();            
+            HttpResponseMessage response = httpClient.DeleteAsync(apiURL + controllerName + '/' + toDeleteId + '/').Result;
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         #endregion
 

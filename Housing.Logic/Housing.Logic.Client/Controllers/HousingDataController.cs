@@ -9,40 +9,114 @@ using System.Web.Http;
 
 namespace Housing.Logic.Client.Controllers
 {
+    /// <summary>
+    /// Utilizes application logic to return HousingData related items to UI
+    /// </summary>
     [RoutePrefix("api/housing-data")]
     public class HousingDataController : ApiController
     {
-        [HttpPost]
-        [Route("add-housing-data")]
-        public HttpResponseMessage AddHousingData([FromBody] HousingDataDTO housingData)
-        {
-            ApplicationLogic logic = new ApplicationLogic();
+        private ApplicationLogic logic = new ApplicationLogic();
 
-            return Request.CreateResponse(HttpStatusCode.OK, logic.InsertHousingData(housingData));
+        [HttpGet]
+        public HttpResponseMessage Get()
+        {
+            List<HousingDataDTO> a;
+            try
+            {
+                if ((a = logic.GetHousingData()) != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
+                }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
         }
 
         [HttpGet]
-        [Route("get-all-housing-data")]
-        public HttpResponseMessage GetAllHousingData()
+        public HttpResponseMessage Get(string id)
         {
-            ApplicationLogic logic = new ApplicationLogic();
-
-            List<HousingDataDTO> housingData = logic.GetHousingData();
-            return Request.CreateResponse(HttpStatusCode.OK, housingData, "application/json");
-        }
-
-        [HttpPut]
-        [Route("update-housing-data")]
-        public HttpResponseMessage UpdateHousingData([FromBody] HousingDataDTO housingData)
-        {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            HousingDataDTO a;
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(id))
+                {
+                    if ((a = logic.GetHousingData().FirstOrDefault(m => m.HousingDataAltId.Equals(id))) != null)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
+                    }
+                }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
         }
 
         [HttpPost]
-        [Route("remove-housing-data")]
-        public HttpResponseMessage RemoveHousingData([FromBody] HousingDataDTO housingData)
+        public HttpResponseMessage Post([FromBody] HousingDataDTO a)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            if (a != null)
+            {
+                try
+                {
+                    if (logic.InsertHousingData(a))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }                
+
+        [HttpPut]
+        public HttpResponseMessage Put(string id, [FromBody] HousingDataDTO housingData)
+        {
+            if (housingData != null && !string.IsNullOrWhiteSpace(id))
+            {
+                try
+                {
+                    if (logic.UpdateHousingData(id, housingData))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        [HttpDelete]
+        public HttpResponseMessage Delete(string id)
+        {
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                try
+                {
+                    if (logic.DeleteHousingData(id))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }

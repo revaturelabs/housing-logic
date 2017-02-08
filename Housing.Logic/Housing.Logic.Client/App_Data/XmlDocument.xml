@@ -484,11 +484,124 @@
         <member name="T:Housing.Logic.Client.Controllers.AssociateController">
             <summary>Utilizes application logic to return associate related items to UI</summary>
         </member>
-        <member name="M:Housing.Logic.Client.Controllers.AssociateController.AddAssociate(Housing.Logic.Domain.DataTransferObjects.AssociateDTO)">
+        <member name="M:Housing.Logic.Client.Controllers.AssociateController.Get">
+            <summary>Returns all associates in JSON format</summary>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.AssociateController.Get(System.String)">
+            <summary>Returns an associates in JSON format</summary>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.AssociateController.Post(Housing.Logic.Domain.DataTransferObjects.AssociateDTO)">
             <summary>Insert an associate. Accepts AssociateDTO objects, returns bool for inserted.</summary>
         </member>
-        <member name="M:Housing.Logic.Client.Controllers.AssociateController.GetAllAssociates">
-            <summary>Returns all associates in JSON format</summary>
+        <member name="M:Housing.Logic.Client.Controllers.AssociateController.Put(System.String,Housing.Logic.Domain.DataTransferObjects.AssociateDTO)">
+            <summary>
+            Attempts to delete an associate with given id
+            </summary>
+            <param name="id"></param>
+            <param name="assoc"></param>
+            <returns>OK if successful</returns>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.AssociateController.Delete(System.String)">
+            <summary>
+            Attemps to 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Housing.Logic.Client.Controllers.BatchController">
+            <summary>
+            Utilizes application logic to return Batch related items to UI
+            </summary>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.BatchController.Get">
+            <summary>
+            Gets batches in json format
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.BatchController.Get(System.String)">
+            <summary>
+            gets a batch with given id in json format
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.BatchController.Post(Housing.Logic.Domain.DataTransferObjects.BatchDTO)">
+            <summary>
+            Attempts to insert a batch
+            </summary>
+            <param name="batch"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.BatchController.Put(System.String,Housing.Logic.Domain.DataTransferObjects.BatchDTO)">
+            <summary>
+            Attempts to update a batch
+            </summary>
+            <param name="Id"></param>
+            <param name="batch"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.BatchController.Delete(System.String)">
+            <summary>
+            Attempts to delete a batch
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Housing.Logic.Client.Controllers.GenderController">
+            <summary>
+            Utilizes application logic to return Gender related items to UI
+            </summary>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.GenderController.Get">
+            <summary>
+            Gets a list of genders in json format
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.GenderController.Get(System.String)">
+            <summary>
+            Gets a gender in json format
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.GenderController.Post(Housing.Logic.Domain.DataTransferObjects.GenderDTO)">
+            <summary>
+            Attempts to insert gender
+            </summary>
+            <param name="gender"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.GenderController.Put(System.String,Housing.Logic.Domain.DataTransferObjects.GenderDTO)">
+            <summary>
+            Attempts to update a gender
+            </summary>
+            <param name="id"></param>
+            <param name="gender"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Housing.Logic.Client.Controllers.GenderController.Delete(System.String)">
+            <summary>
+            Attempts to delete a gender
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Housing.Logic.Client.Controllers.HousingComplexController">
+            <summary>
+            Utilizes application logic to return HousingComplex related items to UI
+            </summary>
+        </member>
+        <member name="T:Housing.Logic.Client.Controllers.HousingDataController">
+            <summary>
+            Utilizes application logic to return HousingData related items to UI
+            </summary>
+        </member>
+        <member name="T:Housing.Logic.Client.Controllers.HousingUnitController">
+            <summary>
+            Utilizes application logic to return HousingUnit related items to UI
+            </summary>
         </member>
     </members>
 </doc>

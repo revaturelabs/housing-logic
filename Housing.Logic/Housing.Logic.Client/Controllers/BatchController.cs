@@ -9,40 +9,144 @@ using System.Web.Http;
 
 namespace Housing.Logic.Client.Controllers
 {
-    [RoutePrefix("api/batches")]
+    /// <summary>
+    /// Utilizes application logic to return Batch related items to UI
+    /// </summary>
+    [RoutePrefix("api/batch")]
     public class BatchController : ApiController
     {
-        [HttpPost]
-        [Route("add-batch")]
-        public HttpResponseMessage AddBatch([FromBody] BatchDTO batch)
-        {
-            ApplicationLogic logic = new ApplicationLogic();
+        private ApplicationLogic logic = new ApplicationLogic();
 
-            return Request.CreateResponse(HttpStatusCode.OK, logic.InsertBatch(batch));
-        }
-
+        //Get: api/batch
+        /// <summary>
+        /// Gets batches in json format
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        [Route("get-all-batches")]
-        public HttpResponseMessage GetAllBatches()
+        public HttpResponseMessage Get()
         {
-            ApplicationLogic logic = new ApplicationLogic();
-
-            List<BatchDTO> batches = logic.GetBatches();
-            return Request.CreateResponse(HttpStatusCode.OK, batches, "application/json");
+            List<BatchDTO> a;
+            try
+            {
+                if ((a = logic.GetBatches()) != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
+                }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
         }
 
+        //Get: api/batch/id
+        /// <summary>
+        /// gets a batch with given id in json format
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public HttpResponseMessage Get(string Id)
+        {
+            BatchDTO a;
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(Id))
+                {
+                    if ((a = logic.GetBatches().FirstOrDefault(m => m.Name.Equals(Id))) != null)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
+                    }
+                }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+        }
+
+        //Post: api/batch
+        /// <summary>
+        /// Attempts to insert a batch
+        /// </summary>
+        /// <param name="batch"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public HttpResponseMessage Post([FromBody] BatchDTO batch)
+        {
+            if (batch != null)
+            {
+                try
+                {
+                    if (logic.InsertBatch(batch))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        //Put: api/batch/id
+        /// <summary>
+        /// Attempts to update a batch
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="batch"></param>
+        /// <returns></returns>
         [HttpPut]
-        [Route("update-batch")]
-        public HttpResponseMessage UpdateBatch([FromBody] BatchDTO batch)
+        public HttpResponseMessage Put(string Id, [FromBody] BatchDTO batch)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            if (batch != null && !string.IsNullOrWhiteSpace(Id))
+            {
+                try
+                {
+                    if (logic.UpdateBatch(Id, batch))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
+        //Delete: api/batch/id
+        /// <summary>
+        /// Attempts to delete a batch
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
-        [Route("remove-batch")]
-        public HttpResponseMessage RemoveBatch([FromBody] BatchDTO batch)
+        public HttpResponseMessage Delete(string id)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                try
+                {
+                    if (logic.DeleteBatch(id))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                    else return Request.CreateResponse(HttpStatusCode.NotModified);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }
