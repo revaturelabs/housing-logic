@@ -56,6 +56,25 @@ namespace Housing.Logic.Client.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("get-housing-data-by-date")]
+        public HttpResponseMessage HousingDataByDate(HousingDataRequestDTO housingDataRequest)
+        {
+            List<HousingDataDTO> hd;
+            try
+            {
+                if ((hd = logic.GetHousingDataByDate(housingDataRequest)) != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, hd, "application/json");
+                }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+        }
+
         [HttpPost]
         public HttpResponseMessage Post([FromBody] HousingDataDTO a)
         {
