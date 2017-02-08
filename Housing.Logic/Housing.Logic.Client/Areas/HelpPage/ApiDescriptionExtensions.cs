@@ -5,6 +5,9 @@ using System.Web.Http.Description;
 
 namespace Housing.Logic.Client.Areas.HelpPage
 {
+    /// <summary>
+    /// Auto generated code
+    /// </summary>
     public static class ApiDescriptionExtensions
     {
         /// <summary>

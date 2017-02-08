@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 
 namespace Housing.Logic.Client.Areas.HelpPage
 {
+#pragma warning disable CS1591
     /// <summary>
     /// This is used to identify the place where the sample should be applied.
     /// </summary>

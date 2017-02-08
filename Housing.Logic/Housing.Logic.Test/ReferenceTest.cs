@@ -8,8 +8,7 @@ using Xunit;
 namespace Housing.Logic.Test
 {
     public class ReferenceTest
-    {
-
+    {              
         #region revashare-srv tests
         /*
         [Fact]

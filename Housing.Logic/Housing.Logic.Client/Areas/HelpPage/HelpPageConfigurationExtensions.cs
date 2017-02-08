@@ -16,6 +16,7 @@ using Housing.Logic.Client.Areas.HelpPage.Models;
 
 namespace Housing.Logic.Client.Areas.HelpPage
 {
+#pragma warning disable CS1591
     public static class HelpPageConfigurationExtensions
     {
         private const string ApiModelPrefix = "MS_HelpPageApiModel_";

@@ -2,6 +2,7 @@ using System;
 
 namespace Housing.Logic.Client.Areas.HelpPage.ModelDescriptions
 {
+#pragma warning disable CS1591
     /// <summary>
     /// Use this attribute to change the name of the <see cref="ModelDescription"/> generated for a type.
     /// </summary>

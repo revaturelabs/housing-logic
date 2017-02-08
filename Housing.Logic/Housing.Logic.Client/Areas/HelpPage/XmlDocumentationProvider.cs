@@ -9,6 +9,7 @@ using Housing.Logic.Client.Areas.HelpPage.ModelDescriptions;
 
 namespace Housing.Logic.Client.Areas.HelpPage
 {
+#pragma warning disable CS1591
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
     /// </summary>

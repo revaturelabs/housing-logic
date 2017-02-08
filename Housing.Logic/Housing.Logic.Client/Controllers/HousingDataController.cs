@@ -12,11 +12,16 @@ namespace Housing.Logic.Client.Controllers
     /// <summary>
     /// Utilizes application logic to return HousingData related items to UI
     /// </summary>
-    [RoutePrefix("api/housing-data")]
+    [RoutePrefix("api/housingdata")]
     public class HousingDataController : ApiController
     {
         private ApplicationLogic logic = new ApplicationLogic();
 
+        //Get: api/housingdata
+        /// <summary>
+        /// Gets list of housing data
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public HttpResponseMessage Get()
         {
@@ -35,6 +40,12 @@ namespace Housing.Logic.Client.Controllers
             }
         }
 
+        //Get: api/housingdata/id
+        /// <summary>
+        /// Gets housing data with given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public HttpResponseMessage Get(string id)
         {
@@ -56,6 +67,12 @@ namespace Housing.Logic.Client.Controllers
             }
         }
 
+        //Post: api/housingdata
+        /// <summary>
+        /// Attempts to insert a new housing data
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
         [HttpPost]
         public HttpResponseMessage Post([FromBody] HousingDataDTO a)
         {
@@ -77,6 +94,13 @@ namespace Housing.Logic.Client.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }                
 
+        //Put: api/housingdata/id
+        /// <summary>
+        /// Attempts to update given housing data
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="housingData"></param>
+        /// <returns></returns>
         [HttpPut]
         public HttpResponseMessage Put(string id, [FromBody] HousingDataDTO housingData)
         {
@@ -98,6 +122,12 @@ namespace Housing.Logic.Client.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
+        //Delete: api/housingdata/id
+        /// <summary>
+        /// Attempts to delete given housing data
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         public HttpResponseMessage Delete(string id)
         {

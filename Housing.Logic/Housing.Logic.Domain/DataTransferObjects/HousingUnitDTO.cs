@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Housing.Logic.Domain.DataTransferObjects
 {
+#pragma warning disable CS1591
     public class HousingUnitDTO
     {
         public string HousingUnitName { get; set; }

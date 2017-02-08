@@ -59,6 +59,30 @@ namespace Housing.Logic.Client.Controllers
             }
         }
 
+        //Get: api/associate/get-unassigned
+        /// <summary>
+        /// Gets all associates not assigned to a HousingUnit
+        /// </summary>
+        /// <returns>status code and a list of associated if successful</returns>
+        [HttpGet]
+        [Route("get-unassigned")]
+        public HttpResponseMessage GetUnassigned()
+        {
+            List<AssociateDTO> a;
+            try
+            {
+                if ((a = logic.GetUnassignedAssociates()) != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
+                }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+        }
+
         //Post: api/associate
         /// <summary>Insert an associate. Accepts AssociateDTO objects, returns bool for inserted.</summary>
         [HttpPost]

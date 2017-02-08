@@ -8,6 +8,7 @@ using System.Web.Routing;
 
 namespace Housing.Logic.Client
 {
+#pragma warning disable CS1591
     public class WebApiApplication : System.Web.HttpApplication
     {
         protected void Application_Start()

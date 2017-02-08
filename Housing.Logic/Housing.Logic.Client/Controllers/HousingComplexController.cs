@@ -12,11 +12,16 @@ namespace Housing.Logic.Client.Controllers
     /// <summary>
     /// Utilizes application logic to return HousingComplex related items to UI
     /// </summary>
-    [RoutePrefix("api/housing-complexes")]
+    [RoutePrefix("api/housingcomplex")]
     public class HousingComplexController : ApiController
     {
         private ApplicationLogic logic = new ApplicationLogic();
 
+        //Get: api/housingcomplex
+        /// <summary>
+        /// Gets a list of housing complexes
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public HttpResponseMessage Get()
         {
@@ -35,6 +40,12 @@ namespace Housing.Logic.Client.Controllers
             }
         }
 
+        //Get: api/housingcomplex/id
+        /// <summary>
+        /// Get a housing complex with given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public HttpResponseMessage Get(string id)
         {
@@ -56,6 +67,12 @@ namespace Housing.Logic.Client.Controllers
             }
         }
 
+        //Post: api/housingcomplex
+        /// <summary>
+        /// Attempts to insert housing complex
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
         [HttpPost]
         public HttpResponseMessage Post([FromBody] HousingComplexDTO a)
         {
@@ -77,6 +94,13 @@ namespace Housing.Logic.Client.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }      
 
+        //Put: api/housingcomplex/id
+        /// <summary>
+        /// Attempts to update given housing complex
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="housingComplex"></param>
+        /// <returns></returns>
         [HttpPut]
         public HttpResponseMessage Put(string id, [FromBody] HousingComplexDTO housingComplex)
         {
@@ -98,6 +122,12 @@ namespace Housing.Logic.Client.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
+        //Delete: api/housingcomplex/id
+        /// <summary>
+        /// Attempt to delete given housing complex
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         public HttpResponseMessage Delete(string id)
         {
