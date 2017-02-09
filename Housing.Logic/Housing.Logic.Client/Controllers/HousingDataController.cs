@@ -56,7 +56,7 @@ namespace Housing.Logic.Client.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("get-housing-data-by-date")]
         public HttpResponseMessage HousingDataByDate(HousingDataRequestDTO housingDataRequest)
         {
