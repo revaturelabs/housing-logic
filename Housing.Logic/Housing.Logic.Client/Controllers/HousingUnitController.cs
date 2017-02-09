@@ -77,7 +77,7 @@ namespace Housing.Logic.Client.Controllers
                 }
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
@@ -100,7 +100,7 @@ namespace Housing.Logic.Client.Controllers
                     return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
                 }
                 logger.Error("Error occured in HousingUnit controller");
-                logger.Log(LogLevel.Error, "Retrieval of housing unit by id failed, a{0} ", id);
+                logger.Log(LogLevel.Error, "Retrieval of housing unit by id failed");
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
             catch (Exception e)

@@ -98,7 +98,7 @@ namespace Housing.Logic.Client.Controllers
                 }
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
