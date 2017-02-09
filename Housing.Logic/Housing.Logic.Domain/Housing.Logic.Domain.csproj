@@ -84,6 +84,7 @@
     <Compile Include="DataTransferObjects\GenderDTO.cs" />
     <Compile Include="DataTransferObjects\HousingComplexDTO.cs" />
     <Compile Include="DataTransferObjects\HousingDataDTO.cs" />
+    <Compile Include="DataTransferObjects\HousingDataRequestDTO.cs" />
     <Compile Include="DataTransferObjects\HousingUnitDTO.cs" />
     <Compile Include="ApplicationLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
