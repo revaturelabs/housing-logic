@@ -186,6 +186,16 @@ namespace Housing.Logic.Domain
             return allHousingData;
         }
 
+        public List<HousingDataDTO> GetHousingDataByDate(HousingDataRequestDTO request)
+        {
+            var allHousingData = data.GetItemsFromApi<List<HousingDataDTO>>("HousingData").Result;
+
+            var housingDataMatchingUnit = allHousingData.Where(hu => (hu.HousingUnitName == request.HousingUnitName));
+            var housingDataMatchingUnitAndDate = housingDataMatchingUnit.Where(hd => (hd.MoveInDate <= request.Date) && (hd.MoveOutDate >= request.Date));
+
+            return housingDataMatchingUnitAndDate.ToList();
+        }
+
         public bool InsertHousingData(HousingDataDTO housingDataToInsert)
         {
             var insertionResult = data.InsertItemUsingApi<HousingDataDTO>(housingDataToInsert, "HousingData").Result;
