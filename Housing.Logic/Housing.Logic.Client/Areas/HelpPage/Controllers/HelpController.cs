@@ -6,6 +6,7 @@ using Housing.Logic.Client.Areas.HelpPage.Models;
 
 namespace Housing.Logic.Client.Areas.HelpPage.Controllers
 {
+#pragma warning disable CS1591
     /// <summary>
     /// The controller that will handle requests for the help page.
     /// </summary>

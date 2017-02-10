@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 
 namespace Housing.Logic.Client.Areas.HelpPage.ModelDescriptions
 {
+#pragma warning disable CS1591
     /// <summary>
     /// Generates model descriptions for given types.
     /// </summary>

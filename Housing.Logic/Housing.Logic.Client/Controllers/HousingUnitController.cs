@@ -15,12 +15,17 @@ namespace Housing.Logic.Client.Controllers
     /// <summary>
     /// Utilizes application logic to return HousingUnit related items to UI
     /// </summary>
-    [RoutePrefix("api/housing-units")]
+    [RoutePrefix("api/housingunit")]
     public class HousingUnitController : ApiController
     {
         private ApplicationLogic logic = new ApplicationLogic();
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
+        //Get: api/housingunit
+        /// <summary>
+        /// Gets all housing units
+        /// </summary>
+        /// <returns>List of HousingUnitDTO's</returns>
         [HttpGet]
         public HttpResponseMessage Get()
         {
@@ -47,7 +52,12 @@ namespace Housing.Logic.Client.Controllers
             }
         }
 
-
+        //Get: api/housingunit/id
+        /// <summary>
+        /// Gets housing unit with given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Requested housingUnitDto or error code</returns>
         [HttpGet]
         public HttpResponseMessage Get(string id)
         {
@@ -65,8 +75,32 @@ namespace Housing.Logic.Client.Controllers
                         return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
                     }
                 }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            catch (Exception)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+        }
+
+        //Get: api/housingunit/available
+        /// <summary>
+        /// Gets all Housing units with available beds
+        /// </summary>
+        /// <returns>status code and a list of units if successful</returns>
+        [HttpGet]
+        [Route("available")]
+        public HttpResponseMessage GetUnitsWithAvailableBeds()
+        {
+            List<HousingUnitDTO> a;
+            try
+            {
+                if ((a = logic.GetHousingUnitsWithAvailableBeds()) != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
+                }
                 logger.Error("Error occured in HousingUnit controller");
-                logger.Log(LogLevel.Error, "Retrieval of housing unit by id failed, a{0} ", id);
+                logger.Log(LogLevel.Error, "Retrieval of housing unit by id failed");
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
             catch (Exception e)
@@ -77,6 +111,12 @@ namespace Housing.Logic.Client.Controllers
             }
         }
 
+        //Post: api/housingunit
+        /// <summary>
+        /// Inserts housingunit into db
+        /// </summary>
+        /// <param name="housingUnit"></param>
+        /// <returns>success/failure status code</returns>
         [HttpPost]
         public HttpResponseMessage Post([FromBody] HousingUnitDTO housingUnit)
         {
@@ -111,6 +151,13 @@ namespace Housing.Logic.Client.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
+        //Put: api/housingunit/id
+        /// <summary>
+        /// Attempts to update given housing unit
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="housingUnit"></param>
+        /// <returns>success/failure status code</returns>
         [HttpPut]
         public HttpResponseMessage Put(string id, [FromBody] HousingUnitDTO housingUnit)
         {
@@ -145,6 +192,12 @@ namespace Housing.Logic.Client.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
+        //Delete: api/housingunit/id
+        /// <summary>
+        /// Attemp to delete given housing unit
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>success/failure status code</returns>
         [HttpDelete]
         public HttpResponseMessage Delete(string id)
         {

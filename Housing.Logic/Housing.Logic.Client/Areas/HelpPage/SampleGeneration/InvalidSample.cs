@@ -2,6 +2,7 @@ using System;
 
 namespace Housing.Logic.Client.Areas.HelpPage
 {
+#pragma warning disable CS1591
     /// <summary>
     /// This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
     /// </summary>
