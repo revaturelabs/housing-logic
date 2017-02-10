@@ -35,8 +35,9 @@ namespace Housing.Logic.Domain
                                 )
                         )
                         .Contains(o.Email)
-                     );            
-
+                     );
+            logger.Trace("List of Associates not assigned housing");
+            logger.Log(LogLevel.Trace, "List of associates needing housing created, toReturn{0} ", toReturn);
             return toReturn.ToList();
         }
 
@@ -51,7 +52,8 @@ namespace Housing.Logic.Domain
                         Metric = group.Key,
                         Count = group.Count()
                     });
-
+            logger.Trace("all data queried");
+            logger.Log(LogLevel.Trace, "all data for housing contains x{0} ", x);
 
             List<HousingUnitDTO> toReturn;
             foreach (var item in x)
@@ -59,9 +61,13 @@ namespace Housing.Logic.Domain
                 if(allUnits.Find(m => m.HousingUnitName.Equals(item.Metric.ToString())).MaxCapacity<=item.Count)
                 {
                     allUnits.Remove(allUnits.Find(m => m.HousingUnitName.Equals(item.Metric.ToString())));
+                    logger.Trace("all Units query performed");
+                    logger.Log(LogLevel.Trace, "all Units query returned allUnits{0} ", allUnits);
                 }
             }
             toReturn = allUnits;
+            logger.Trace("List of Apartments with open spots");
+            logger.Log(LogLevel.Trace, "List of open beds created, toReturn{0} ", toReturn);
             return toReturn;
         }
 
