@@ -15,7 +15,7 @@ namespace Housing.Logic.Domain
     /// <summary>Class is used for consuming lower level data access service</summary>
     public class DataAccess
     {
-        const string apiURL = "http://localhost/Housing.Data.Client/api/";
+        const string apiURL = "http://localhost:57200/api/";
 
         #region Create
         /// <summary>Used for insert calls to data access API</summary>
