@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Housing.Logic.Domain.DataTransferObjects
 {
+    #pragma warning disable CS1591
     public class AssociateDTO
     {
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string GenderName { get; set; }

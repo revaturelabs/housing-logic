@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Housing.Logic.Domain.DataTransferObjects
 {
+#pragma warning disable CS1591
     public class BatchDTO
     {
         public string Name { get; set; }

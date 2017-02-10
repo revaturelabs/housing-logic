@@ -18,6 +18,7 @@ using System.Web.Http.OData;
 
 namespace Housing.Logic.Client.Areas.HelpPage
 {
+#pragma warning disable CS1591
     /// <summary>
     /// Use this class to customize the Help Page.
     /// For example you can set a custom <see cref="System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation

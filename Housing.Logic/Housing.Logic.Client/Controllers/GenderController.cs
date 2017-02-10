@@ -13,7 +13,7 @@ namespace Housing.Logic.Client.Controllers
     /// <summary>
     /// Utilizes application logic to return Gender related items to UI
     /// </summary>
-    [RoutePrefix("api/genders")]
+    [RoutePrefix("api/gender")]
     public class GenderController : ApiController
     {
         private ApplicationLogic logic = new ApplicationLogic();

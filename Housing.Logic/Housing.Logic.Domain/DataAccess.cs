@@ -11,6 +11,7 @@ using System.Web.Script.Serialization;
 
 namespace Housing.Logic.Domain
 {
+#pragma warning disable CS1591
     /// <summary>Class is used for consuming lower level data access service</summary>
     public class DataAccess
     {
@@ -108,6 +109,7 @@ namespace Housing.Logic.Domain
         }
 
         #endregion
+
 
     }
 }

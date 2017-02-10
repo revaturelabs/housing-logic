@@ -10,10 +10,58 @@ using System.Threading.Tasks;
 
 namespace Housing.Logic.Domain
 {
+#pragma warning disable CS1591
     /// <summary>Class is used for performing any logic needed on data acquired from data access</summary>
     public class ApplicationLogic
     {
         private DataAccess data = new DataAccess();
+
+        public List<AssociateDTO> GetUnassignedAssociates()
+        {
+            var allAssociates = data.GetItemsFromApi<List<AssociateDTO>>("associate").Result;
+            var allData = data.GetItemsFromApi<List<HousingDataDTO>>("housingdata").Result;
+
+            var toReturn = allAssociates
+                    .Select(m => m)
+                    .Where(o =>
+                        (
+                                allAssociates
+                                .Select(m => m.Email)
+                                .Except(
+                                    allData
+                                    .Select(m => m.AssociateEmail)
+                                )
+                        )
+                        .Contains(o.Email)
+                     );            
+
+            return toReturn.ToList();
+        }
+
+        public List<HousingUnitDTO> GetHousingUnitsWithAvailableBeds()
+        {
+            var allUnits = data.GetItemsFromApi<List<HousingUnitDTO>>("housingunit").Result;
+            var allData = data.GetItemsFromApi<List<HousingDataDTO>>("housingdata").Result;
+
+            var x = allData
+                    .GroupBy(m => m.HousingUnitName)
+                    .Select(group => new {
+                        Metric = group.Key,
+                        Count = group.Count()
+                    });
+
+
+            List<HousingUnitDTO> toReturn;
+            foreach (var item in x)
+            {
+                if(allUnits.Find(m => m.HousingUnitName.Equals(item.Metric.ToString())).MaxCapacity<=item.Count)
+                {
+                    allUnits.Remove(allUnits.Find(m => m.HousingUnitName.Equals(item.Metric.ToString())));
+                }
+            }
+            toReturn = allUnits;
+            return toReturn;
+        }
 
         #region Associate Related
 
