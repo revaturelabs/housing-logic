@@ -97,6 +97,8 @@ namespace Housing.Logic.Client.Controllers
             {
                 if ((a = logic.GetHousingUnitsWithAvailableBeds()) != null)
                 {
+                    logger.Trace("testing get housing unit, housingUnit{0}");
+                    logger.Log(LogLevel.Trace, "Entered try block of housing unit get");
                     return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
                 }
                 logger.Error("Error occured in HousingUnit controller");

@@ -1,5 +1,6 @@
 ﻿using Housing.Logic.Domain.DataTransferObjects;
 using Newtonsoft.Json;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,10 @@ namespace Housing.Logic.Domain
     /// <summary>Class is used for consuming lower level data access service</summary>
     public class DataAccess
     {
+
         const string apiURL = "http://localhost:57200/api/";
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
 
         #region Create
         /// <summary>Used for insert calls to data access API</summary>
@@ -34,6 +38,8 @@ namespace Housing.Logic.Domain
 
             else
             {
+                logger.Error("Error occured in " + controllerName + " controller");
+                logger.Log(LogLevel.Error, "Insert of " + controllerName + " failed");
                 return false;
             }
         }
@@ -57,6 +63,8 @@ namespace Housing.Logic.Domain
             }
             else
             {
+                logger.Error("Error occured in " + controllerName + " controller");
+                logger.Log(LogLevel.Error, "Retrieval of " + controllerName + " returned null");
                 list = null;
             }
 
@@ -80,6 +88,8 @@ namespace Housing.Logic.Domain
 
             else
             {
+                logger.Error("Error occured in " + controllerName + " controller");
+                logger.Log(LogLevel.Error, "Update of " + controllerName + " failed");
                 return false;
             }
         }
@@ -104,6 +114,8 @@ namespace Housing.Logic.Domain
             }
             else
             {
+                logger.Error("Error occured in " + controllerName + " controller");
+                logger.Log(LogLevel.Error, "Deletion of " + controllerName + " failed");
                 return false;
             }
         }

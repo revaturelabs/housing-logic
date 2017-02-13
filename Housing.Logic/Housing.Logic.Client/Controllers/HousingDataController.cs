@@ -85,6 +85,11 @@ namespace Housing.Logic.Client.Controllers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="housingDataRequest"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("get-housing-data-by-date")]
         public HttpResponseMessage HousingDataByDate(HousingDataRequestDTO housingDataRequest)
@@ -92,14 +97,22 @@ namespace Housing.Logic.Client.Controllers
             List<HousingDataDTO> hd;
             try
             {
+                logger.Trace("testing get housing data by date", housingDataRequest.ToString());
+                logger.Log(LogLevel.Trace, "Entering try block in get by id");
                 if ((hd = logic.GetHousingDataByDate(housingDataRequest)) != null)
                 {
+                    logger.Trace("get housing data by date", hd.ToString());
+                    logger.Log(LogLevel.Trace, "getting housing data by date");
                     return Request.CreateResponse(HttpStatusCode.OK, hd, "application/json");
                 }
+                logger.Error("Error occured in HousingData controller");
+                logger.Log(LogLevel.Error, "Retrieval of housing data by date failed, hd{0} ", hd.ToString());
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                logger.Error(e, "Error occured in HousingData controller");
+                logger.Log(LogLevel.Error, "Retrieval of housing data by date failed, handled exception");
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
         }

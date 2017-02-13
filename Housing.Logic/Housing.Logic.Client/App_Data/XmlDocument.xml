@@ -684,6 +684,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:Housing.Logic.Client.Controllers.HousingDataController.HousingDataByDate(Housing.Logic.Domain.DataTransferObjects.HousingDataRequestDTO)">
+            <summary>
+            
+            </summary>
+            <param name="housingDataRequest"></param>
+            <returns></returns>
+        </member>
         <member name="M:Housing.Logic.Client.Controllers.HousingDataController.Post(Housing.Logic.Domain.DataTransferObjects.HousingDataDTO)">
             <summary>
             Attempts to insert a new housing data
