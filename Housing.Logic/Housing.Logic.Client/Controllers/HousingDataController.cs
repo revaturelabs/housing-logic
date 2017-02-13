@@ -86,7 +86,7 @@ namespace Housing.Logic.Client.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Attempts to get a list of housing data by date and unit provided
         /// </summary>
         /// <param name="housingDataRequest"></param>
         /// <returns></returns>

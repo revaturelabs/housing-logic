@@ -23,7 +23,7 @@ namespace Housing.Logic.Client.Controllers
 
         //Get: api/housingunit
         /// <summary>
-        /// Gets all housing units
+        /// Gets list of housing units
         /// </summary>
         /// <returns>List of HousingUnitDTO's</returns>
         [HttpGet]

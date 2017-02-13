@@ -520,7 +520,7 @@
             <summary>Returns all associates in JSON format</summary>
         </member>
         <member name="M:Housing.Logic.Client.Controllers.AssociateController.Get(System.String)">
-            <summary>Returns an associates in JSON format</summary>
+            <summary>Returns an associates in JSON format with given id. Route must end with a '/'</summary>
         </member>
         <member name="M:Housing.Logic.Client.Controllers.AssociateController.GetUnassigned">
             <summary>
@@ -533,7 +533,7 @@
         </member>
         <member name="M:Housing.Logic.Client.Controllers.AssociateController.Put(System.String,Housing.Logic.Domain.DataTransferObjects.AssociateDTO)">
             <summary>
-            Attempts to delete an associate with given id
+            Attempts to update an associate with given id
             </summary>
             <param name="id"></param>
             <param name="assoc"></param>
@@ -541,7 +541,7 @@
         </member>
         <member name="M:Housing.Logic.Client.Controllers.AssociateController.Delete(System.String)">
             <summary>
-            Attemps to 
+            Attemps to delete an associate with given id
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -599,7 +599,7 @@
         </member>
         <member name="M:Housing.Logic.Client.Controllers.GenderController.Get(System.String)">
             <summary>
-            Gets a gender in json format
+            Gets a gender in json format with given id
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -613,7 +613,7 @@
         </member>
         <member name="M:Housing.Logic.Client.Controllers.GenderController.Put(System.String,Housing.Logic.Domain.DataTransferObjects.GenderDTO)">
             <summary>
-            Attempts to update a gender
+            Attempts to update a gender with given id
             </summary>
             <param name="id"></param>
             <param name="gender"></param>
@@ -621,7 +621,7 @@
         </member>
         <member name="M:Housing.Logic.Client.Controllers.GenderController.Delete(System.String)">
             <summary>
-            Attempts to delete a gender
+            Attempts to delete a gender with given id
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -686,7 +686,7 @@
         </member>
         <member name="M:Housing.Logic.Client.Controllers.HousingDataController.HousingDataByDate(Housing.Logic.Domain.DataTransferObjects.HousingDataRequestDTO)">
             <summary>
-            
+            Attempts to get a list of housing data by date and unit provided
             </summary>
             <param name="housingDataRequest"></param>
             <returns></returns>
@@ -720,7 +720,7 @@
         </member>
         <member name="M:Housing.Logic.Client.Controllers.HousingUnitController.Get">
             <summary>
-            Gets all housing units
+            Gets list of housing units
             </summary>
             <returns>List of HousingUnitDTO's</returns>
         </member>

@@ -17,7 +17,7 @@ namespace Housing.Logic.Domain
     public class DataAccess
     {
 
-        const string apiURL = "http://localhost:57200/api/";
+        const string apiURL = "http://34.193.92.187/housingdata/api/";
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
 
