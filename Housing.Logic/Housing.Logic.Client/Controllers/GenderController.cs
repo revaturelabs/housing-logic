@@ -53,7 +53,7 @@ namespace Housing.Logic.Client.Controllers
 
         //Get: api/gender/id
         /// <summary>
-        /// Gets a gender in json format
+        /// Gets a gender in json format with given id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -128,7 +128,7 @@ namespace Housing.Logic.Client.Controllers
 
         ////Put: api/gender/id
         /// <summary>
-        /// Attempts to update a gender
+        /// Attempts to update a gender with given id
         /// </summary>
         /// <param name="id"></param>
         /// <param name="gender"></param>
@@ -169,7 +169,7 @@ namespace Housing.Logic.Client.Controllers
 
         ////Delete: api/gender/id
         /// <summary>
-        /// Attempts to delete a gender
+        /// Attempts to delete a gender with given id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

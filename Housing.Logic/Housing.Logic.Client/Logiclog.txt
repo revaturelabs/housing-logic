@@ -1290,3 +1290,9 @@
 2017-02-10 16:52:21.5509|TRACE|Housing.Logic.Client.Controllers.HousingComplexController|update log for complex get
 2017-02-10 16:52:22.2844|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing get
 2017-02-10 16:52:22.3234|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Getting Housing Data
+2017-02-13 11:18:40.6955|TRACE|Housing.Logic.Client.Controllers.BatchController|testing get batches
+2017-02-13 11:18:40.7765|TRACE|Housing.Logic.Client.Controllers.BatchController|update log for batch get
+2017-02-13 11:18:41.8885|INFO|Housing.Logic.Domain.ApplicationLogic|Get Batches logic
+2017-02-13 11:18:41.9065|INFO|Housing.Logic.Domain.ApplicationLogic|Batch Get returned allBatches {}
+2017-02-13 11:18:41.9486|TRACE|Housing.Logic.Client.Controllers.BatchController|testing get
+2017-02-13 11:18:41.9686|TRACE|Housing.Logic.Client.Controllers.BatchController|Retrieving Batches

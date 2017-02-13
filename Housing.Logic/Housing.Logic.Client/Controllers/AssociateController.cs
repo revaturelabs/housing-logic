@@ -47,7 +47,7 @@ namespace Housing.Logic.Client.Controllers
         }
 
         //GET: api/associate/id
-        /// <summary>Returns an associates in JSON format</summary>
+        /// <summary>Returns an associates in JSON format with given id. Route must end with a '/'</summary>
         [HttpGet]
         public HttpResponseMessage Get(string id)
         {
@@ -139,7 +139,7 @@ namespace Housing.Logic.Client.Controllers
 
         //PUT: api/associate/id
         /// <summary>
-        /// Attempts to delete an associate with given id
+        /// Attempts to update an associate with given id
         /// </summary>
         /// <param name="id"></param>
         /// <param name="assoc"></param>
@@ -180,7 +180,7 @@ namespace Housing.Logic.Client.Controllers
 
         //Delete: api/associate/id
         /// <summary>
-        /// Attemps to 
+        /// Attemps to delete an associate with given id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
