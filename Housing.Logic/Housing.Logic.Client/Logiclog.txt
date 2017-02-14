@@ -1296,3 +1296,134 @@
 2017-02-13 11:18:41.9065|INFO|Housing.Logic.Domain.ApplicationLogic|Batch Get returned allBatches {}
 2017-02-13 11:18:41.9486|TRACE|Housing.Logic.Client.Controllers.BatchController|testing get
 2017-02-13 11:18:41.9686|TRACE|Housing.Logic.Client.Controllers.BatchController|Retrieving Batches
+2017-02-13 15:53:07.0743|TRACE|Housing.Logic.Client.Controllers.GenderController|testing get by id
+2017-02-13 15:53:07.1289|TRACE|Housing.Logic.Client.Controllers.GenderController|from gender get using id
+2017-02-13 15:53:07.5947|INFO|Housing.Logic.Domain.ApplicationLogic|Get Genders logic
+2017-02-13 15:53:07.6152|INFO|Housing.Logic.Domain.ApplicationLogic|Gender Get returned allGenders {}
+2017-02-13 15:53:07.6663|TRACE|Housing.Logic.Client.Controllers.GenderController|testing values of amale from pm logic v3 
+2017-02-13 15:53:07.6923|TRACE|Housing.Logic.Client.Controllers.GenderController|gender get using id
+2017-02-13 15:54:30.0018|TRACE|Housing.Logic.Client.Controllers.GenderController|Update Gender
+2017-02-13 15:54:31.0674|TRACE|Housing.Logic.Client.Controllers.GenderController|Entered try block
+2017-02-13 15:54:42.5309|INFO|Housing.Logic.Domain.ApplicationLogic|Update Gender logic
+2017-02-13 15:54:43.5168|INFO|Housing.Logic.Domain.ApplicationLogic|Gender Update result bit {}
+2017-02-13 16:46:27.5341|TRACE|Housing.Logic.Client.Controllers.GenderController|testing get genders
+2017-02-13 16:46:27.6072|TRACE|Housing.Logic.Client.Controllers.GenderController|update log for genders get
+2017-02-13 16:46:31.5336|INFO|Housing.Logic.Domain.ApplicationLogic|Get Genders logic
+2017-02-13 16:46:31.5486|INFO|Housing.Logic.Domain.ApplicationLogic|Gender Get returned allGenders {}
+2017-02-13 16:46:31.5736|TRACE|Housing.Logic.Client.Controllers.GenderController|testing get
+2017-02-13 16:46:31.5876|TRACE|Housing.Logic.Client.Controllers.GenderController|Retrieving Genders
+2017-02-13 16:47:56.3259|TRACE|Housing.Logic.Client.Controllers.GenderController|Update Gender
+2017-02-13 16:47:57.1403|TRACE|Housing.Logic.Client.Controllers.GenderController|Entered try block
+2017-02-13 16:48:01.9587|INFO|Housing.Logic.Domain.ApplicationLogic|Update Gender logic
+2017-02-13 16:49:30.4848|INFO|Housing.Logic.Domain.ApplicationLogic|Gender Update result bit {}
+2017-02-13 16:55:45.5274|TRACE|Housing.Logic.Client.Controllers.GenderController|Update Gender
+2017-02-13 16:55:46.3623|TRACE|Housing.Logic.Client.Controllers.GenderController|Entered try block
+2017-02-13 16:55:53.5806|INFO|Housing.Logic.Domain.ApplicationLogic|Update Gender logic
+2017-02-13 16:57:38.1886|TRACE|Housing.Logic.Client.Controllers.GenderController|Update Gender
+2017-02-13 16:57:38.7201|TRACE|Housing.Logic.Client.Controllers.GenderController|Entered try block
+2017-02-13 16:57:43.6605|INFO|Housing.Logic.Domain.ApplicationLogic|Update Gender logic
+2017-02-13 17:01:25.6947|TRACE|Housing.Logic.Client.Controllers.GenderController|Update Gender
+2017-02-13 17:01:26.5677|TRACE|Housing.Logic.Client.Controllers.GenderController|Entered try block
+2017-02-13 17:01:32.5650|INFO|Housing.Logic.Domain.ApplicationLogic|Update Gender logic
+2017-02-14 09:44:18.0410|TRACE|Housing.Logic.Client.Controllers.GenderController|testing get by id
+2017-02-14 09:44:18.1370|TRACE|Housing.Logic.Client.Controllers.GenderController|from gender get using id
+2017-02-14 09:44:20.9377|INFO|Housing.Logic.Domain.ApplicationLogic|Get Genders logic
+2017-02-14 09:44:20.9547|INFO|Housing.Logic.Domain.ApplicationLogic|Gender Get returned allGenders {}
+2017-02-14 09:44:20.9928|TRACE|Housing.Logic.Client.Controllers.GenderController|testing values of amale from pm logic v10 
+2017-02-14 09:44:20.9928|TRACE|Housing.Logic.Client.Controllers.GenderController|gender get using id
+2017-02-14 09:44:54.5225|TRACE|Housing.Logic.Client.Controllers.GenderController|Update Gender
+2017-02-14 09:44:55.1048|TRACE|Housing.Logic.Client.Controllers.GenderController|Entered try block
+2017-02-14 09:45:01.7279|INFO|Housing.Logic.Domain.ApplicationLogic|Update Gender logic
+2017-02-14 09:46:19.8170|INFO|Housing.Logic.Domain.ApplicationLogic|Gender Update result bit {}
+2017-02-14 10:07:10.0563|TRACE|Housing.Logic.Client.Controllers.GenderController|Update Gender
+2017-02-14 10:07:10.1398|TRACE|Housing.Logic.Client.Controllers.GenderController|Entered try block
+2017-02-14 10:07:52.2879|INFO|Housing.Logic.Domain.ApplicationLogic|Update Gender logic
+2017-02-14 10:07:52.3050|INFO|Housing.Logic.Domain.ApplicationLogic|Gender Update result bit {}
+2017-02-14 10:07:52.3395|TRACE|Housing.Logic.Client.Controllers.GenderController|Updating Gender
+2017-02-14 10:07:52.3550|TRACE|Housing.Logic.Client.Controllers.GenderController|Gender Updated
+2017-02-14 11:05:21.0064|TRACE|Housing.Logic.Client.Controllers.GenderController|testing get genders
+2017-02-14 11:05:21.6386|TRACE|Housing.Logic.Client.Controllers.GenderController|update log for genders get
+2017-02-14 11:09:09.6993|TRACE|Housing.Logic.Client.Controllers.GenderController|testing get genders
+2017-02-14 11:09:10.9261|TRACE|Housing.Logic.Client.Controllers.GenderController|update log for genders get
+2017-02-14 11:47:45.0271|TRACE|Housing.Logic.Client.Controllers.GenderController|testing get genders
+2017-02-14 11:47:45.0851|TRACE|Housing.Logic.Client.Controllers.GenderController|update log for genders get
+2017-02-14 11:48:16.3379|TRACE|Housing.Logic.Client.Controllers.GenderController|testing get genders
+2017-02-14 11:48:17.2767|TRACE|Housing.Logic.Client.Controllers.GenderController|update log for genders get
+2017-02-14 11:52:30.3811|TRACE|Housing.Logic.Client.Controllers.GenderController|testing get genders
+2017-02-14 11:52:30.4424|TRACE|Housing.Logic.Client.Controllers.GenderController|update log for genders get
+2017-02-14 11:53:57.2263|TRACE|Housing.Logic.Client.Controllers.GenderController|testing get genders
+2017-02-14 11:53:57.2813|TRACE|Housing.Logic.Client.Controllers.GenderController|update log for genders get
+2017-02-14 11:53:57.9949|INFO|Housing.Logic.Domain.ApplicationLogic|Get Genders logic
+2017-02-14 11:53:58.0124|INFO|Housing.Logic.Domain.ApplicationLogic|Gender Get returned allGenders {}
+2017-02-14 11:53:58.0459|TRACE|Housing.Logic.Client.Controllers.GenderController|testing get
+2017-02-14 11:53:58.0619|TRACE|Housing.Logic.Client.Controllers.GenderController|Retrieving Genders
+2017-02-14 15:58:20.3652|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing get housing data
+2017-02-14 15:58:20.4173|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entering try block in housing data get
+2017-02-14 15:58:21.6591|INFO|Housing.Logic.Domain.ApplicationLogic|Get HousingData logic
+2017-02-14 15:58:21.6741|INFO|Housing.Logic.Domain.ApplicationLogic|HousingData Get returned allHousingData {}
+2017-02-14 15:58:21.6981|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing get
+2017-02-14 15:58:21.7291|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Getting Housing Data
+2017-02-14 16:00:23.8069|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing insert housing data, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO
+2017-02-14 16:00:23.8209|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entered try block of housing data insert
+2017-02-14 16:00:23.9895|ERROR|Housing.Logic.Domain.DataAccess|Error occured in HousingData controller
+2017-02-14 16:00:24.0066|ERROR|Housing.Logic.Domain.DataAccess|Insert of HousingData failed
+2017-02-14 16:00:24.0266|INFO|Housing.Logic.Domain.ApplicationLogic|Insert HousingData logic
+2017-02-14 16:00:24.0416|INFO|Housing.Logic.Domain.ApplicationLogic|HousingData Insertion result bit {}
+2017-02-14 16:00:24.0626|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Error occured in HousingData controller
+2017-02-14 16:00:24.0746|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Insertion of housing data did not occur, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO 
+2017-02-14 16:01:05.2327|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing insert housing data, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO
+2017-02-14 16:01:05.2438|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entered try block of housing data insert
+2017-02-14 16:01:05.3899|ERROR|Housing.Logic.Domain.DataAccess|Error occured in HousingData controller
+2017-02-14 16:01:05.4049|ERROR|Housing.Logic.Domain.DataAccess|Insert of HousingData failed
+2017-02-14 16:01:05.4219|INFO|Housing.Logic.Domain.ApplicationLogic|Insert HousingData logic
+2017-02-14 16:01:05.4329|INFO|Housing.Logic.Domain.ApplicationLogic|HousingData Insertion result bit {}
+2017-02-14 16:01:05.4580|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Error occured in HousingData controller
+2017-02-14 16:01:05.4580|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Insertion of housing data did not occur, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO 
+2017-02-14 16:01:56.5441|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing insert housing data, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO
+2017-02-14 16:01:57.3749|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entered try block of housing data insert
+2017-02-14 16:03:57.2192|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing insert housing data, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO
+2017-02-14 16:03:57.2878|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entered try block of housing data insert
+2017-02-14 16:03:57.8744|ERROR|Housing.Logic.Domain.DataAccess|Error occured in HousingData controller
+2017-02-14 16:03:57.8905|ERROR|Housing.Logic.Domain.DataAccess|Insert of HousingData failed
+2017-02-14 16:03:57.9045|INFO|Housing.Logic.Domain.ApplicationLogic|Insert HousingData logic
+2017-02-14 16:03:57.9155|INFO|Housing.Logic.Domain.ApplicationLogic|HousingData Insertion result bit {}
+2017-02-14 16:03:57.9445|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Error occured in HousingData controller
+2017-02-14 16:03:57.9615|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Insertion of housing data did not occur, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO 
+2017-02-14 16:04:29.6096|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing insert housing data, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO
+2017-02-14 16:04:30.1426|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entered try block of housing data insert
+2017-02-14 16:04:30.9222|ERROR|Housing.Logic.Domain.DataAccess|Error occured in HousingData controller
+2017-02-14 16:04:30.9418|ERROR|Housing.Logic.Domain.DataAccess|Insert of HousingData failed
+2017-02-14 16:04:30.9598|INFO|Housing.Logic.Domain.ApplicationLogic|Insert HousingData logic
+2017-02-14 16:04:30.9918|INFO|Housing.Logic.Domain.ApplicationLogic|HousingData Insertion result bit {}
+2017-02-14 16:04:50.0984|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Error occured in HousingData controller
+2017-02-14 16:04:50.1244|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Insertion of housing data did not occur, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO 
+2017-02-14 16:06:43.9873|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing insert housing data, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO
+2017-02-14 16:06:44.0773|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entered try block of housing data insert
+2017-02-14 16:07:44.1384|ERROR|Housing.Logic.Domain.DataAccess|Error occured in HousingData controller
+2017-02-14 16:07:44.1554|ERROR|Housing.Logic.Domain.DataAccess|Insert of HousingData failed
+2017-02-14 16:07:44.1785|INFO|Housing.Logic.Domain.ApplicationLogic|Insert HousingData logic
+2017-02-14 16:07:44.1925|INFO|Housing.Logic.Domain.ApplicationLogic|HousingData Insertion result bit {}
+2017-02-14 16:07:44.2190|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Error occured in HousingData controller
+2017-02-14 16:07:44.2323|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Insertion of housing data did not occur, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO 
+2017-02-14 16:08:12.4017|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing insert housing data, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO
+2017-02-14 16:08:12.4202|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entered try block of housing data insert
+2017-02-14 16:09:52.5740|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Error occured in HousingData controller
+2017-02-14 16:09:52.5850|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Insert of housing data failed, handled exception a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO 
+2017-02-14 16:18:13.2994|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing insert housing data, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO
+2017-02-14 16:18:13.3274|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entered try block of housing data insert
+2017-02-14 16:19:34.0059|ERROR|Housing.Logic.Domain.DataAccess|Error occured in HousingData controller
+2017-02-14 16:19:34.0209|ERROR|Housing.Logic.Domain.DataAccess|Insert of HousingData failed
+2017-02-14 16:19:34.0414|INFO|Housing.Logic.Domain.ApplicationLogic|Insert HousingData logic
+2017-02-14 16:19:34.0624|INFO|Housing.Logic.Domain.ApplicationLogic|HousingData Insertion result bit {}
+2017-02-14 16:19:34.0895|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Error occured in HousingData controller
+2017-02-14 16:19:34.1145|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Insertion of housing data did not occur, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO 
+2017-02-14 16:19:50.7516|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing insert housing data, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO
+2017-02-14 16:19:50.7676|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entered try block of housing data insert
+2017-02-14 16:19:54.4523|INFO|Housing.Logic.Domain.ApplicationLogic|Insert HousingData logic
+2017-02-14 16:19:54.4733|INFO|Housing.Logic.Domain.ApplicationLogic|HousingData Insertion result bit {}
+2017-02-14 16:19:54.5334|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Inserting housing data, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO
+2017-02-14 16:19:54.5584|TRACE|Housing.Logic.Client.Controllers.HousingDataController|HousingData Inserted
+2017-02-14 16:22:35.3800|TRACE|Housing.Logic.Client.Controllers.HousingDataController|testing insert housing data, a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO
+2017-02-14 16:22:35.4160|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entered try block of housing data insert
+2017-02-14 16:22:39.1357|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Error occured in HousingData controller
+2017-02-14 16:22:39.1647|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Insert of housing data failed, handled exception a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO 
