@@ -91,12 +91,18 @@ namespace Housing.Logic.Client.Controllers
             {
                 if ((a = logic.GetUnassignedAssociates()) != null)
                 {
+                    logger.Trace("testing get on associates not assigned housing");
+                    logger.Log(LogLevel.Trace, "Retrieved associates who are not assigned housing");
                     return Request.CreateResponse(HttpStatusCode.OK, a, "application/json");
                 }
+                logger.Error("Error occured in Associate Controller");
+                logger.Log(LogLevel.Error, "Retrieval of Associate not assigned housing failed");
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                logger.Error(e, "Error occured in Associate Controller");
+                logger.Log(LogLevel.Error, "Retrieval of Associates not assigned housing failed, exception handled");
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
