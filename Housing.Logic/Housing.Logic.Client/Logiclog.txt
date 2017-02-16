@@ -1427,3 +1427,27 @@
 2017-02-14 16:22:35.4160|TRACE|Housing.Logic.Client.Controllers.HousingDataController|Entered try block of housing data insert
 2017-02-14 16:22:39.1357|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Error occured in HousingData controller
 2017-02-14 16:22:39.1647|ERROR|Housing.Logic.Client.Controllers.HousingDataController|Insert of housing data failed, handled exception a Housing.Logic.Domain.DataTransferObjects.HousingDataDTO 
+2017-02-16 09:48:10.1646|TRACE|Housing.Logic.Client.Controllers.AssociateController|testing get
+2017-02-16 09:48:10.2127|TRACE|Housing.Logic.Client.Controllers.AssociateController|Entered try block for associate get
+2017-02-16 09:48:15.2494|INFO|Housing.Logic.Domain.ApplicationLogic|Get Associate logic
+2017-02-16 09:48:15.2665|INFO|Housing.Logic.Domain.ApplicationLogic|Associate Get returned allAssociates {}
+2017-02-16 09:48:15.3105|TRACE|Housing.Logic.Client.Controllers.AssociateController|sending request from get
+2017-02-16 09:48:15.3225|TRACE|Housing.Logic.Client.Controllers.AssociateController|update log from associate get on success
+2017-02-16 09:48:35.5405|TRACE|Housing.Logic.Client.Controllers.HousingComplexController|testing get complex
+2017-02-16 09:48:35.5550|TRACE|Housing.Logic.Client.Controllers.HousingComplexController|Entering try block in complex get
+2017-02-16 09:48:37.2700|INFO|Housing.Logic.Domain.ApplicationLogic|Get HousingComplexes logic
+2017-02-16 09:48:37.2850|INFO|Housing.Logic.Domain.ApplicationLogic|HousingComplex Get returned allHousingComplexes {}
+2017-02-16 09:48:37.2910|TRACE|Housing.Logic.Client.Controllers.HousingComplexController|testing get
+2017-02-16 09:48:37.3121|TRACE|Housing.Logic.Client.Controllers.HousingComplexController|update log for complex get
+2017-02-16 09:48:49.4742|TRACE|Housing.Logic.Client.Controllers.HousingUnitController|testing get housing units
+2017-02-16 09:48:49.5122|TRACE|Housing.Logic.Client.Controllers.HousingUnitController|Entering try block in housing units get
+2017-02-16 09:48:49.9465|INFO|Housing.Logic.Domain.ApplicationLogic|Get HousingUnits logic
+2017-02-16 09:48:49.9645|INFO|Housing.Logic.Domain.ApplicationLogic|HousingUnits Get returned allHousingUnits{}
+2017-02-16 09:48:49.9986|TRACE|Housing.Logic.Client.Controllers.HousingUnitController|testing get
+2017-02-16 09:48:50.0176|TRACE|Housing.Logic.Client.Controllers.HousingUnitController|Getting Housing Units
+2017-02-16 09:53:19.3629|TRACE|Housing.Logic.Client.Controllers.HousingUnitController|testing insert housing unit, housingUnittest complex 555
+2017-02-16 09:53:19.3889|TRACE|Housing.Logic.Client.Controllers.HousingUnitController|Entered try block of housing unit insert
+2017-02-16 09:54:30.4939|INFO|Housing.Logic.Domain.ApplicationLogic|Insert HousingUnit logic
+2017-02-16 09:54:30.5109|INFO|Housing.Logic.Domain.ApplicationLogic|HousingUnit Insertion result bit {}
+2017-02-16 09:54:30.5419|TRACE|Housing.Logic.Client.Controllers.HousingUnitController|Inserting housing unit, housingUnitHousing.Logic.Domain.DataTransferObjects.HousingUnitDTO
+2017-02-16 09:54:30.5579|TRACE|Housing.Logic.Client.Controllers.HousingUnitController|HousingUnit Inserted
