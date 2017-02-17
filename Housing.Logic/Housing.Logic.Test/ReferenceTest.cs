@@ -16,7 +16,7 @@ namespace Housing.Logic.Test
             var old = data.GetItemsFromApi<List<Domain.DataTransferObjects.GenderDTO>>("gender").Result.Find(m => m.Name.Equals("male v2"));
             var oldId = old.Name;
             old.Name = "male";
-            var actual = data.UpdateItemUsingApi<Domain.DataTransferObjects.GenderDTO>(old, "gender", oldId).Result;
+            var actual = data.UpdateItemUsingApi(old, "gender", oldId).Result;
             Assert.True(actual);
         }
 

@@ -14,6 +14,7 @@ namespace Housing.Logic.Domain.DataTransferObjects
         public int MaxCapacity { get; set; }
         public string GenderName { get; set; }
         public string HousingComplexName { get; set; }
+        public DateTime LeaseEndDate { get; set; }
 
     }
 }

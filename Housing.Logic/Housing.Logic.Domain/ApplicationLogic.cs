@@ -95,9 +95,10 @@ namespace Housing.Logic.Domain
 
         public bool UpdateAssociate(string Id, AssociateDTO assoc)
         {
+            var updateResult = data.UpdateItemUsingApi<AssociateDTO>(assoc, "associate", Id).Result;
             logger.Info("Update Associate logic");
-            logger.Log(LogLevel.Info, "Associate Update result bit {}", data.UpdateItemUsingApi<AssociateDTO>(assoc, "associate", Id).Result);
-            return data.UpdateItemUsingApi<AssociateDTO>(assoc, "associate", Id).Result;
+            logger.Log(LogLevel.Info, "Associate Update result bit {}", updateResult);
+            return updateResult;
         }
 
         /// <summary>
@@ -107,9 +108,10 @@ namespace Housing.Logic.Domain
         /// <returns>true if success, else returns false</returns>
         public bool DeleteAssociate(string assoc)
         {
+            var deleteResult = data.DeleteItemUsingApi(assoc, "associate").Result;
             logger.Info("Delete Associate logic");
-            logger.Log(LogLevel.Info, "Associate Delete result bit {}", data.DeleteItemUsingApi(assoc, "associate").Result);
-            return data.DeleteItemUsingApi(assoc, "associate").Result;
+            logger.Log(LogLevel.Info, "Associate Delete result bit {}", deleteResult);
+            return deleteResult;
         }
 
          
@@ -135,16 +137,18 @@ namespace Housing.Logic.Domain
 
         public bool UpdateBatch(string Id, BatchDTO batch)
         {
+            var updateResult = data.UpdateItemUsingApi<BatchDTO>(batch, "batch", Id).Result;
             logger.Info("Update Batch logic");
-            logger.Log(LogLevel.Info, "Batch Update result bit {}", data.UpdateItemUsingApi<BatchDTO>(batch, "batch", Id).Result);
-            return data.UpdateItemUsingApi<BatchDTO>(batch, "batch", Id).Result;
+            logger.Log(LogLevel.Info, "Batch Update result bit {}", updateResult);
+            return updateResult;
         }
                
         public bool DeleteBatch(string id)
         {
+            var deleteResult = data.DeleteItemUsingApi(id, "batch").Result;
             logger.Info("Delete Batch logic");
-            logger.Log(LogLevel.Info, "Batch Delete result bit {}", data.DeleteItemUsingApi(id, "batch").Result);
-            return data.DeleteItemUsingApi(id, "batch").Result;
+            logger.Log(LogLevel.Info, "Batch Delete result bit {}", deleteResult);
+            return deleteResult;
         }
 
         #endregion
@@ -167,16 +171,18 @@ namespace Housing.Logic.Domain
         }
         public bool UpdateGender(string Id, GenderDTO gender)
         {
+            var toReturn =  data.UpdateItemUsingApi<GenderDTO>(gender, "gender", Id).Result;
             logger.Info("Update Gender logic");
-            logger.Log(LogLevel.Info, "Gender Update result bit {}", data.UpdateItemUsingApi<GenderDTO>(gender, "gender", Id).Result);
-            return data.UpdateItemUsingApi<GenderDTO>(gender, "gender", Id).Result;
+            logger.Log(LogLevel.Info, "Gender Update result bit {}", toReturn);
+            return toReturn;
         }
 
         public bool DeleteGender(string id)
         {
+            var deleteResult = data.DeleteItemUsingApi(id, "gender").Result;
             logger.Info("Delete Gender logic");
-            logger.Log(LogLevel.Info, "Gender Delete result bit {}", data.DeleteItemUsingApi(id, "gender").Result);
-            return data.DeleteItemUsingApi(id, "gender").Result;
+            logger.Log(LogLevel.Info, "Gender Delete result bit {}", deleteResult);
+            return deleteResult;
         }
         #endregion
 
@@ -199,16 +205,18 @@ namespace Housing.Logic.Domain
 
         public bool UpdateHousingComplex(string Id, HousingComplexDTO housingComplex)
         {
+            var result = data.UpdateItemUsingApi<HousingComplexDTO>(housingComplex, "housingcomplex", Id).Result;
             logger.Info("Update HousingComplex logic");
-            logger.Log(LogLevel.Info, "HousingComplex Update result bit {}", data.UpdateItemUsingApi<HousingComplexDTO>(housingComplex, "housingComplex", Id).Result);
-            return data.UpdateItemUsingApi<HousingComplexDTO>(housingComplex, "housingcomplex", Id).Result;
+            logger.Log(LogLevel.Info, "HousingComplex Update result bit {}", result);
+            return result;
         }
 
         public bool DeleteHousingComplex(string id)
         {
+            var result = data.DeleteItemUsingApi(id, "housingcomplex").Result;
             logger.Info("Delete HousingComplex logic");
-            logger.Log(LogLevel.Info, "HousingComplex Delete result bit {}", data.DeleteItemUsingApi(id, "housingcomplex").Result);
-            return data.DeleteItemUsingApi(id, "housingcomplex").Result;
+            logger.Log(LogLevel.Info, "HousingComplex Delete result bit {}", result);
+            return result;
         }
         #endregion
 
@@ -224,10 +232,8 @@ namespace Housing.Logic.Domain
         public List<HousingDataDTO> GetHousingDataByDate(HousingDataRequestDTO request)
         {
             var allHousingData = data.GetItemsFromApi<List<HousingDataDTO>>("HousingData").Result;
-
             var housingDataMatchingUnit = allHousingData.Where(hu => (hu.HousingUnitName == request.HousingUnitName));
             var housingDataMatchingUnitAndDate = housingDataMatchingUnit.Where(hd => (hd.MoveInDate <= request.Date) && (hd.MoveOutDate >= request.Date));
-
             return housingDataMatchingUnitAndDate.ToList();
         }
 
@@ -240,16 +246,18 @@ namespace Housing.Logic.Domain
         }
         public bool UpdateHousingData(string Id, HousingDataDTO housingData)
         {
+            var result = data.UpdateItemUsingApi<HousingDataDTO>(housingData, "housingdata", Id).Result;
             logger.Info("Update HousingData logic");
-            logger.Log(LogLevel.Info, "HousingData Update result bit {}", data.UpdateItemUsingApi<HousingDataDTO>(housingData, "housingData", Id).Result);
-            return data.UpdateItemUsingApi<HousingDataDTO>(housingData, "housingdata", Id).Result;
+            logger.Log(LogLevel.Info, "HousingData Update result bit {}", result);
+            return result;
         }
 
         public bool DeleteHousingData(string id)
         {
+            var result = data.DeleteItemUsingApi(id, "housingdata").Result;
             logger.Info("Delete HousingData logic");
-            logger.Log(LogLevel.Info, "HousingData Delete result bit {}", data.DeleteItemUsingApi(id, "housingdata").Result);
-            return data.DeleteItemUsingApi(id, "housingdata").Result;
+            logger.Log(LogLevel.Info, "HousingData Delete result bit {}", result);
+            return result;
         }
         #endregion
 
@@ -271,16 +279,18 @@ namespace Housing.Logic.Domain
         }
         public bool UpdateHousingUnit(string Id, HousingUnitDTO housingUnit)
         {
+            var result = data.UpdateItemUsingApi<HousingUnitDTO>(housingUnit, "housingunit", Id).Result;
             logger.Info("Update HousingUnit logic");
-            logger.Log(LogLevel.Info, "HousingUnit Update result bit {}", data.UpdateItemUsingApi<HousingUnitDTO>(housingUnit, "housingUnit", Id).Result);
-            return data.UpdateItemUsingApi<HousingUnitDTO>(housingUnit, "housingunit", Id).Result;
+            logger.Log(LogLevel.Info, "HousingUnit Update result bit {}", result);
+            return result;
         }
 
         public bool DeleteHousingUnit(string id)
         {
+            var result = data.DeleteItemUsingApi(id, "housingunit").Result;
             logger.Info("Delete HousingUnit logic");
-            logger.Log(LogLevel.Info, "HousingUnit Delete result bit {}", data.DeleteItemUsingApi(id, "housingunit").Result);
-            return data.DeleteItemUsingApi(id, "housingunit").Result;
+            logger.Log(LogLevel.Info, "HousingUnit Delete result bit {}", result);
+            return result;
         }
         #endregion
     }

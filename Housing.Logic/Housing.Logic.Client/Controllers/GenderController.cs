@@ -18,7 +18,7 @@ namespace Housing.Logic.Client.Controllers
     public class GenderController : ApiController
     {
         private ApplicationLogic logic = new ApplicationLogic();
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static Logger logger = LogManager.GetCurrentClassLogger();        
 
         ////Get: api/gender
         /// <summary>

@@ -18,6 +18,7 @@ namespace Housing.Logic.Domain
     {
 
         const string apiURL = "http://34.193.92.187/housingdata/api/";
+        //const string apiURL = "http://localhost:57200/api/";
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
 

@@ -19,5 +19,6 @@ namespace Housing.Logic.Domain.DataTransferObjects
         public System.DateTime DateOfBirth { get; set; }
         public bool HasCar { get; set; }
         public bool HasKeys { get; set; }
+        public bool NeedsHousing { get; set; }
     }
 }
