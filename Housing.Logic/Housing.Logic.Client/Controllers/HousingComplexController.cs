@@ -95,7 +95,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpPost]
         public HttpResponseMessage Post([FromBody] HousingComplexDTO a)
         {
-            if (a != null)
+            if (a != null && ModelState.IsValid)
             {
                 try
                 {
@@ -136,7 +136,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpPut]
         public HttpResponseMessage Put(string id, [FromBody] HousingComplexDTO housingComplex)
         {
-            if (housingComplex != null && !string.IsNullOrWhiteSpace(id))
+            if (housingComplex != null && !string.IsNullOrWhiteSpace(id) && ModelState.IsValid)
             {
                 try
                 {
@@ -176,7 +176,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpDelete]
         public HttpResponseMessage Delete(string id)
         {
-            if (!string.IsNullOrWhiteSpace(id))
+            if (!string.IsNullOrWhiteSpace(id) && logic.GetHousingUnits().Where(m => m.HousingComplexName.Equals(id)).Count() == 0)
             {
                 try
                 {

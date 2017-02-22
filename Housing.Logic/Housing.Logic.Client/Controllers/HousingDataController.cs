@@ -126,7 +126,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpPost]
         public HttpResponseMessage Post([FromBody] HousingDataDTO a)
         {
-            if (a != null)
+            if (a != null && ModelState.IsValid)
             {
                 try
                 {
@@ -167,7 +167,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpPut]
         public HttpResponseMessage Put(string id, [FromBody] HousingDataDTO housingData)
         {
-            if (housingData != null && !string.IsNullOrWhiteSpace(id))
+            if (housingData != null && !string.IsNullOrWhiteSpace(id) && ModelState.IsValid)
             {
                 try
                 {

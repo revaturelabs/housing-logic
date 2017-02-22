@@ -112,7 +112,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpPost]
         public HttpResponseMessage Post([FromBody] AssociateDTO a)
         {
-            if (a != null)
+            if (a != null && ModelState.IsValid)
             {
                 try
                 {
@@ -153,7 +153,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpPut]
         public HttpResponseMessage Put(string id, [FromBody] AssociateDTO assoc)
         {
-            if (assoc != null && !string.IsNullOrWhiteSpace(id))
+            if (assoc != null && !string.IsNullOrWhiteSpace(id) && ModelState.IsValid)
             {
                 try
                 {
@@ -193,7 +193,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpDelete]
         public HttpResponseMessage Delete(string id)
         {
-            if (!string.IsNullOrWhiteSpace(id))
+            if (!string.IsNullOrWhiteSpace(id) && logic.GetHousingData().Where(m => m.AssociateEmail.Equals(id)).Count() ==0)
             {
                 try
                 {

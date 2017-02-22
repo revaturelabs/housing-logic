@@ -122,7 +122,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpPost]
         public HttpResponseMessage Post([FromBody] HousingUnitDTO housingUnit)
         {
-            if (housingUnit != null)
+            if (housingUnit != null && ModelState.IsValid)
             {
                 try
                 {
@@ -163,7 +163,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpPut]
         public HttpResponseMessage Put(string id, [FromBody] HousingUnitDTO housingUnit)
         {
-            if (housingUnit != null && !string.IsNullOrWhiteSpace(id))
+            if (housingUnit != null && !string.IsNullOrWhiteSpace(id) && ModelState.IsValid && logic.GetHousingDataByDate(new HousingDataRequestDTO() { HousingUnitName = id, Date = DateTime.Now }).Count<=housingUnit.MaxCapacity)
             {
                 try
                 {
@@ -203,7 +203,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpDelete]
         public HttpResponseMessage Delete(string id)
         {
-            if (!string.IsNullOrWhiteSpace(id))
+            if (!string.IsNullOrWhiteSpace(id) && logic.GetHousingData().Where(m => m.HousingUnitName.Equals(id)).Count() == 0)
             {
                 try
                 {
