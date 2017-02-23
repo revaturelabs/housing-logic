@@ -94,7 +94,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpPost]
         public HttpResponseMessage Post([FromBody] BatchDTO batch)
         {
-            if (batch != null)
+            if (batch != null && ModelState.IsValid)
             {
                 try
                 {
@@ -135,7 +135,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpPut]
         public HttpResponseMessage Put(string Id, [FromBody] BatchDTO batch)
         {
-            if (batch != null && !string.IsNullOrWhiteSpace(Id))
+            if (batch != null && !string.IsNullOrWhiteSpace(Id) && ModelState.IsValid)
             {
                 try
                 {

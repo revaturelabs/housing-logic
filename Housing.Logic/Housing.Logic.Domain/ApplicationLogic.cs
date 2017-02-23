@@ -164,6 +164,7 @@ namespace Housing.Logic.Domain
 
         public bool InsertGender(GenderDTO genderToInsert)
         {
+            genderToInsert.Name = genderToInsert.Name.Trim().ToLowerInvariant();
             var insertionResult = data.InsertItemUsingApi<GenderDTO>(genderToInsert, "Gender").Result;
             logger.Info("Insert Gender logic");
             logger.Log(LogLevel.Info, "Gender Insertion result bit {}", insertionResult);
@@ -171,6 +172,7 @@ namespace Housing.Logic.Domain
         }
         public bool UpdateGender(string Id, GenderDTO gender)
         {
+            gender.Name = gender.Name.Trim().ToLowerInvariant();
             var toReturn =  data.UpdateItemUsingApi<GenderDTO>(gender, "gender", Id).Result;
             logger.Info("Update Gender logic");
             logger.Log(LogLevel.Info, "Gender Update result bit {}", toReturn);

@@ -95,7 +95,7 @@ namespace Housing.Logic.Client.Controllers
         [HttpPost]
         public HttpResponseMessage Post([FromBody] GenderDTO gender)
         {
-            if (gender != null)
+            if (gender != null && ModelState.IsValid)
             {
                 try
                 {
